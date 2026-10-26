@@ -121,7 +121,7 @@ access_routes:
     GenderDiscrimOnlineAppendix.pdf (134,942 bytes). This confirms an acquisition start, not the archive interiors,
     file-level license, or redistribution terms.
 - route: Paper and online appendix documentation
-  access_status: documentation
+  access_status: needs-verification
   direct_url: https://broomcenter.ucsb.edu/sites/default/files/publications/pdf/kuhn3.pdf
   requirements: Read the appendix and data section; the publisher article may require subscription access.
   steps:
@@ -130,7 +130,8 @@ access_routes:
   - Treat any missing raw HTML or intermediate files as a reproducibility boundary, not as an invitation to infer them.
   deliverable: Public paper/appendix documentation for the production path and limitations
   cost: free
-  last_checked: '2026-08-10'
+  last_checked: '2026-10-26'
+  caveat: This legacy UCSB PDF returns 404 in GitHub Actions and the browser. Its historical read remains provenance, not a current download promise. The author replication page above is the separately recorded starting point for the named online appendix; this review did not re-download that appendix or substitute a different working-paper version.
 access:
   url: https://sites.google.com/view/peter-kuhn/home/data/gender-discrimination-in-job-ads
   cost: free
@@ -254,6 +255,12 @@ used_by:
   evidence_url: https://sites.google.com/view/peter-kuhn/home/data/gender-discrimination-in-job-ads
   data_note: The paper reports 1,057,538 unique ads from four windows between May 2008 and February 2010, linked to 74,202 firms and represented across Chinese provinces. The author page supplies GenderDiscrimData.zip, do_files.zip, and the online appendix; these support conditional reproduction of the released analysis asset, not a guarantee of a current Zhaopin archive or a nationally representative job universe.
 provenance:
+- source: https://broomcenter.ucsb.edu/sites/default/files/publications/pdf/kuhn3.pdf (GitHub Actions and browser check, 2026-10-26)
+  field_scope:
+  - Current 404 of the legacy documentation route only; historical paper-use evidence and the distinct author replication route are retained
+  added: '2026-10-26'
+  confidence: high
+  verified: true
 - source: https://sites.google.com/view/peter-kuhn/home/data/gender-discrimination-in-job-ads
   field_scope:
   - replication route

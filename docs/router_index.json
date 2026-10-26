@@ -1375,10 +1375,10 @@
         "cost": "free",
         "routes": [
           {
-            "route": "cnsda",
+            "route": "RUC CSSD CGSS data space",
             "access_status": "available-with-application",
             "cost": "free",
-            "last_checked": "2026-07-10"
+            "last_checked": "2026-10-26"
           }
         ]
       },
@@ -1549,8 +1549,8 @@
         "start": 2011,
         "end": "ongoing",
         "last_confirmed_release": 2021,
-        "coverage_note": "Six rounds confirmed for 2011/2013/2015/2017/2019/2021",
-        "last_checked": "2026-07-10"
+        "coverage_note": "The official April 2026 application note opens 2011/2013/2015/2017/2019/2021 to academic applications; 2023/2025 collection is completed but those waves are not generally open for application in that note.",
+        "last_checked": "2026-10-26"
       },
       "frequency": [
         "biennial"
@@ -1612,7 +1612,7 @@
             "route": "chfs-data-center",
             "access_status": "available-with-application",
             "cost": "free",
-            "last_checked": "2026-07-10"
+            "last_checked": "2026-10-26"
           }
         ]
       },
@@ -15634,9 +15634,9 @@
           },
           {
             "route": "Paper and online appendix documentation",
-            "access_status": "documentation",
+            "access_status": "needs-verification",
             "cost": "free",
-            "last_checked": "2026-08-10"
+            "last_checked": "2026-10-26"
           }
         ]
       },
@@ -15895,7 +15895,7 @@
             "route": "bnu-chip-platform",
             "access_status": "available-with-application",
             "cost": "free",
-            "last_checked": "2026-07-10"
+            "last_checked": "2026-10-26"
           },
           {
             "route": "ICPSR 21741 public-use CHIP 2002",
@@ -16138,14 +16138,20 @@
         "cost": "free",
         "routes": [
           {
-            "route": "RUC CLASS数据申请 (email application)",
+            "route": "RUC CSSD CLASS data space",
             "access_status": "by-application",
+            "cost": "free",
+            "last_checked": "2026-10-26"
+          },
+          {
+            "route": "RUC CLASS数据申请 (email application)",
+            "access_status": "historical-documentation",
             "cost": "free",
             "last_checked": "2026-08-15"
           },
           {
             "route": "CNSDA archive (中国社会调查数据资料库)",
-            "access_status": "by-application",
+            "access_status": "needs-verification",
             "cost": "free",
             "last_checked": "2026-08-15"
           }
@@ -16154,7 +16160,7 @@
       "data_pathway": {
         "mode": "direct",
         "origin": "ready-made",
-        "target_artifact": "CLASS individual (and community) questionnaire microdata. Per the official RUC application note (read 2026-08-15), RUC freely opens the 2014, 2016, 2018 and 2020 individual questionnaire data to academia; applicants send a purpose statement plus a signed data-use agreement to class_ruc@163.com and receive the data by email within about 7 working days after review. The class.ruc.edu.cn FAQ additionally states that project data can be downloaded free after registration at the CNSDA archive (中国国家调查数据库).",
+        "target_artifact": "CLASS individual (and community) questionnaire microdata. Per the official RUC application note (read 2026-08-15), RUC freely opens the 2014, 2016, 2018 and 2020 individual questionnaire data to academia; the current CSSD catalog instructs applicants to email the signed agreement to class_ruc@163.com with their CSSD username and requested wave, then use the file's download/application action and supply the research purpose for review. The older note's seven-working-day email delivery is historical, not a promise for the current CSSD workflow.",
         "availability": "ready-made",
         "ordinary_researcher_feasible": true
       },
@@ -17046,9 +17052,9 @@
       "time_span": {
         "start": "2020",
         "end": "2024",
-        "last_confirmed_release": "2025-04-29 (second-wave data release note; three waves completed)",
-        "coverage_note": "Waves: 2020 baseline, 2022 second, 2024 third (completed per the 2025-04-29 note); fourth-wave preparation news dated 2026-07 on the official site. Which waves are actually downloadable per the release note was not fully read.",
-        "last_checked": "2026-08-15"
+        "last_confirmed_release": "2025-04-29: CRRS2020 and CRRS2022 open for approved cloud use",
+        "coverage_note": "Waves: 2020 baseline, 2022 second, 2024 third (completed per the 2025-04-29 note); fourth-wave preparation news dated 2026-07 on the official site. The re-read release note grants cloud use of 2020/2022, not a 2024 release or downloadable microdata.",
+        "last_checked": "2026-10-26"
       },
       "frequency": [
         "biennial"
@@ -17066,11 +17072,11 @@
       ],
       "research_fit": {
         "best_for": [
-          "Rural China household/village panel research (2020-2024) on production, income, consumption and rural revitalization policies, with village-level context",
-          "Research needing the CASS RDI rural survey family and its documented free email application route"
+          "Rural China household/village panel research (released 2020/2022) on production, income, consumption and rural revitalization policies, with village-level context",
+          "Research fitting the CASS RDI rural survey family and approved domestic cloud-desktop use"
         ],
         "choose_over": [
-          "Choose CRRS over other rural household surveys when village+household linked design, 2020-2024 biennial waves, and CASS RDI provenance fit.",
+          "Choose CRRS over other rural household surveys when village+household linked design, released 2020/2022 waves, and CASS RDI provenance fit.",
           "For nationally representative rural-urban household panels with long history use cfps/chip; CRRS is rural-focused and younger."
         ],
         "not_good_for": [
@@ -17083,7 +17089,7 @@
           "Policy exposure timing (belongs to the variation side of the design)"
         ],
         "variation_available": [
-          "Longitudinal tracking variation across 2020/2022/2024",
+          "Longitudinal tracking across released 2020/2022; 2024 fieldwork completion does not establish its release",
           "Cross-county/cross-province variation (10 baseline provinces; 14 by 2024)"
         ],
         "topics": [
@@ -17095,20 +17101,20 @@
         ]
       },
       "access": {
-        "cost": "free",
+        "cost": "by-application",
         "routes": [
           {
-            "route": "RDI email application (调查数据 column)",
+            "route": "RDI cloud-desktop application (official release instructions)",
             "access_status": "by-application",
-            "cost": "free",
-            "last_checked": "2026-08-15"
+            "cost": "by-application",
+            "last_checked": "2026-10-26"
           }
         ]
       },
       "data_pathway": {
         "mode": "direct",
         "origin": "ready-made",
-        "target_artifact": "CRRS wave microdata (village questionnaires + household questionnaires + household-member records) delivered after an email application. Per the official 数据使用说明 (2022-10-24, read 2026-08-15): applicants fill the data-use application form, sign the confidentiality agreement, attach work/student-ID scans, and email the package; staff review within about one week. The 关于公布第二期...数据的说明 (2025-04-29, read) documents the released wave data and its content.",
+        "target_artifact": "Approved remote use of CRRS2020 and CRRS2022 village/household/member microdata, questionnaires, weights and coding information on the RDI cloud desktop. The official 2025-04-29 release note closes the former email-request channel: microdata stay in the controlled environment, and research results may be exported to the approved email only after administrator review. This is not a downloadable raw-data delivery.",
         "availability": "ready-made",
         "ordinary_researcher_feasible": true
       },

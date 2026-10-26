@@ -32,11 +32,11 @@ time_span:
   start: 2011
   end: ongoing
   last_confirmed_release: 2021
-  coverage_note: Six rounds confirmed for 2011/2013/2015/2017/2019/2021
-  last_checked: '2026-07-10'
+  coverage_note: The official April 2026 application note opens 2011/2013/2015/2017/2019/2021 to academic applications; 2023/2025 collection is completed but those waves are not generally open for application in that note.
+  last_checked: '2026-10-26'
 frequency:
 - biennial
-sample_size: Approximately 8,438 households/29,324 people in 2011; subsequent rounds expanded to approximately 40,000 households/year
+sample_size: Official application note lists 8,438 households in 2011, 28,141 in 2013, 37,289 in 2015, 40,011 in 2017, 34,643 in 2019 and 22,027 in the 2021 wave; the last wave's fieldwork spans 2021-2022.
 key_variables:
 - Household assets (real estate/financial assets/industrial and commercial assets/vehicles/land)
 - Household debt (mortgage/consumer loan/business loan/private loan)
@@ -107,24 +107,24 @@ joins:
 access_routes:
 - route: chfs-data-center
   access_status: available-with-application
-  direct_url: https://chfs.swufe.edu.cn/sjzx.htm
+  direct_url: https://chfser.swufe.edu.cn/data/
   requirements: Registration, study description, and data use agreement.
   steps:
-  - Enter the CHFS data center.
+  - Read the current official application note at https://chfs.swufe.edu.cn/sjzx/sjsq.htm and follow its data-registration link.
   - Register and submit a research proposal.
   - Download the approved round and documents after review.
-  deliverable: Family/personal data on public application version; sensitive fields provided by permissions.
+  deliverable: Approved 2011-2021 household/individual survey waves in Stata format, with questionnaires and usage documentation; sensitive fields remain permission-dependent.
   cost: free
-  last_checked: '2026-07-10'
+  last_checked: '2026-10-26'
+  caveat: The old https://chfs.swufe.edu.cn/sjzx.htm page returns 404. The current official link reaches the CHFS data-platform login; this review did not submit an application or verify an account's download permissions. Completed 2023/2025 collection is not general release.
 access:
-  url: 'https://chfs.swufe.edu.cn (CHFS official website); Data application: https://chfs.swufe.edu.cn/sjzx.htm'
+  url: https://chfser.swufe.edu.cn/data/
   cost: free
   license: Academic research only, registration + signing of data use agreement required
   format:
   - dta
-  - csv
   api: false
-  how_to_get: 1) Visit https://chfs.swufe.edu.cn and register; 2) submit an application and research plan and sign the data-use agreement; 3) after approval, download the available waves. Access is free but application-controlled.
+  how_to_get: Read https://chfs.swufe.edu.cn/sjzx/sjsq.htm, then use its official https://chfser.swufe.edu.cn/data/ registration/application link. Complete the platform's research-use and agreement requirements and obtain only the approved waves and fields. The April 2026 note offers Stata data and documents for the six 2011-2021 waves, not general access to 2023/2025.
 caveats: The core strength of CHFS lies in the detailed measurement of assets/liabilities/properties - this is the weakness
   of CFPS/CHARLS. However, CHFS has limited coverage in areas such as health, cognition, and attitude. Some sensitive financial
   variables (accurate property market value, private lending) may be underreported. The baseline sample size in 2011 was relatively
@@ -180,6 +180,15 @@ used_by:
   evidence_url: https://onlinelibrary.wiley.com/doi/full/10.1111/jors.70068
   data_note: The publisher's full article page confirms that Li, Liu & Ye use longitudinal CHFS data to study labor-market outcomes and gender wage gaps in the city-county merger study. It does not, on the checked page, establish the exact CHFS waves, permitted geography, merger-timing source, or a paper-specific release, so those details remain governed by the main CHFS access record and are not inferred here.
 provenance:
+- source: https://chfs.swufe.edu.cn/sjzx/sjsq.htm (official application note dated April 2026), https://chfs.swufe.edu.cn/sjzx/gksjk.htm and their linked https://chfser.swufe.edu.cn/data/ portal (browser-read 2026-10-26)
+  field_scope:
+  - Current application URL replacing the old 404 data-center page
+  - Six academic-application waves through 2021 versus completed but not generally open 2023/2025 waves
+  - Wave-specific household sample sizes, 2021-2022 fieldwork, Stata deliverable and accompanying documents
+  - Portal/login availability only; no application, credentials or downloaded survey files
+  added: '2026-10-26'
+  confidence: high
+  verified: true
 - source: Editorial consistency review of this record's variable coverage and application-controlled access route (2026-09-29)
   field_scope:
   - Aligned research-use prose with the distinction between measured variables and causal identification.
@@ -231,8 +240,8 @@ The survey is mainly biennial, with later waves covering about 40,000 households
 - **Social Security**: Medical insurance type, pension type and amount, minimum living security
 
 ## How to get
-1. Visit https://chfs.swufe.edu.cn → Register an account.
-2. Submit a data use application (research purpose + sign a data use agreement) in the "Data Center".
+1. Read the [official application note](https://chfs.swufe.edu.cn/sjzx/sjsq.htm), then open its [CHFS data-registration portal](https://chfser.swufe.edu.cn/data/). The former `/sjzx.htm` page returns 404.
+2. Register and submit the research-use application under the platform's agreement and review requirements. The April 2026 note opens the six 2011-2021 waves and explicitly does not generally open 2023/2025, despite their completed collection.
 3. After approval, download the waves, fields and documentation authorized for your application, in the formats actually supplied. The documented route is free; sensitive fields may require separate permission.
 
 ## Connections to other data

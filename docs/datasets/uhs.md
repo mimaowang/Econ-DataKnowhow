@@ -141,6 +141,7 @@ access_routes:
   deliverable: CHIP's independently investigated controlled data products; It cannot claim UHS original data
   cost: by-application
   last_checked: '2026-07-10'
+  caveat: The CHIP portal returned a deployment-side 502 in a 2026-10-26 browser check although the official BNU application instructions still link it. Treat this substitute as currently interrupted; the separate CHIP 2002 ICPSR archive is not UHS access.
 quality:
   profile_status: partial
   access_status: needs-verification
@@ -190,6 +191,12 @@ used_by:
   data_note: >-
     Uses UHS 1986-2014 (over 1 million individuals) combined with Population Census waves (1990, 2000, 2010) as the primary data source. Documents how market-oriented reforms — abolition of job assignment system (1993-1996) and college expansion (1999) — improved human capital allocation in urban China. Quantitative general equilibrium model with gender-specific education and occupation wedges. Finds occupational mismatch fell by ~19% and aggregate output rose by ~0.8%. Female education barriers in high-skill occupations (engineers etc.) account for ~80% of efficiency losses. Without reforms, 2010 young cohort human capital would be 1.6% lower.
 provenance:
+- source: https://bs.bnu.edu.cn/zgjmsrfpdcsjk/sjsq/index.html and http://chip.bnu.edu.cn/ (browser-checked 2026-10-26; availability note only)
+  field_scope:
+  - Outage of the CHIP substitute route, without any new claim about NBS UHS application access
+  added: '2026-10-26'
+  confidence: high
+  verified: true
 - source: https://www.aeaweb.org/articles/materials/16850
   field_scope:
   - AER paper use

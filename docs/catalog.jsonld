@@ -312,7 +312,7 @@
         "@type": "Organization",
         "name": "National Survey Research Center at Renmin University of China (NSRC, National Survey Research Center at Renmin University of China)"
       },
-      "url": "http://cnsda.ruc.edu.cn/",
+      "url": "https://cssd.ruc.edu.cn/dataspace/cgss",
       "temporalCoverage": "2003/ongoing",
       "spatialCoverage": "All 31 provinces/municipalities/autonomous regions in mainland China (including urban and rural areas)",
       "isAccessibleForFree": true,
@@ -371,7 +371,7 @@
         "@type": "Organization",
         "name": "Survey and Research Center for China Household Finance (SWUFE), Southwestern University of Finance and Economics"
       },
-      "url": "https://chfs.swufe.edu.cn/sjzx.htm",
+      "url": "https://chfser.swufe.edu.cn/data/",
       "temporalCoverage": "2011/ongoing",
       "spatialCoverage": "29 provinces/cities/autonomous regions in mainland China",
       "isAccessibleForFree": true,
@@ -3469,7 +3469,7 @@
       "@id": "dataset:class-china-longitudinal-aging-social-survey",
       "identifier": "class-china-longitudinal-aging-social-survey",
       "name": "China Longitudinal Aging Social Survey (CLASS 中国老年社会追踪调查)",
-      "description": "CLASS is RUC's national longitudinal survey of older adults (baseline 2014, 11,511 respondents across 28 provinces, follow-ups through 2020-21) with a verified free application route (purpose statement + signed agreement by email) for the 2014/2016/2018/2020 individual data; an open 2024 article confirms a usable 2018 urban/non-urban analysis.",
+      "description": "CLASS is RUC's national longitudinal survey of older adults (baseline 2014, 11,511 respondents across 28 provinces). Its documented 2014/2016/2018/2020 individual-data set is reached through a free, application-controlled route, now starting at CSSD; an open 2024 article confirms a usable 2018 urban/non-urban analysis.",
       "keywords": [
         "aging",
         "health",
@@ -3484,9 +3484,9 @@
       ],
       "publisher": {
         "@type": "Organization",
-        "name": "中国人民大学老年学研究所 (Institute of Gerontology, Renmin University of China) designs and implements CLASS; data distributed via RUC's 健康中国 研究院 CLASS数据申请 route and the CNSDA archive (中国社会调查数据资料库, cnsda.ruc.edu.cn / cnsda.org). Verified from the official project site class.ruc.edu.cn (fetched 2026-08-15) and the official RUC application note (jkzgyjy.ruc.edu.cn, fetched+read 2026-08-15)."
+        "name": "中国人民大学老年学研究所 (Institute of Gerontology, Renmin University of China) designs and implements CLASS. The current catalog/application start is RUC's CSSD CLASS data space, officially linked by the project site's platform-launch announcement (browser-read 2026-10-26). Older RUC email instructions and CNSDA archive references remain as dated sources below."
       },
-      "url": "http://jkzgyjy.ruc.edu.cn/sjzy/CLASSsjsq/index.htm",
+      "url": "https://cssd.ruc.edu.cn/dataspace/CLASS",
       "temporalCoverage": "2014/2020",
       "spatialCoverage": "China, 28 provinces/municipalities/autonomous regions at baseline (all except Hainan, Tibet, Xinjiang)",
       "isAccessibleForFree": true,
@@ -3700,7 +3700,7 @@
       "@id": "dataset:crrs-rural-revitalization-survey",
       "identifier": "crrs-rural-revitalization-survey",
       "name": "China Rural Revitalization Survey (CRRS 中国乡村振兴综合调查)",
-      "description": "CRRS is CASS RDI's biennial rural tracking survey (2020/2022/2024, 10 provinces at baseline expanding to 14) of villages, households and members, obtainable free through a documented email application (form + confidentiality agreement + ID scan, about one week); a public article verifies a linked village-villager 2020 use case.",
+      "description": "CRRS is CASS RDI's rural tracking survey of villages, households and members. The current documented route is approved domestic cloud use of the 2020/2022 waves, with reviewed result exports rather than raw-data downloads; a public article verifies a linked village-villager 2020 use case. Later fieldwork expanded coverage but does not itself establish another released wave.",
       "keywords": [
         "agriculture",
         "rural development",
@@ -3717,10 +3717,10 @@
         "@type": "Organization",
         "name": "中国社会科学院农村发展研究所 (Institute of Rural Development, Chinese Academy of Social Sciences, RDI-CASS). Verified from the official RDI site rdi.cssn.cn (home, 调查数据 column and release notes, all fetched/read 2026-08-15)."
       },
-      "url": "http://rdi.cssn.cn/dcsj/",
+      "url": "http://rdi.cssn.cn/dcsj/202504/t20250429_5871894.shtml",
       "temporalCoverage": "2020/2024",
       "spatialCoverage": "China; baseline 10 provinces across four regions (east/central/west/ northeast): Guangdong, Zhejiang, Shandong, Anhui, Henan, Heilongjiang, Guizhou, Sichuan, Shaanxi, Ningxia; third wave (2024) added Liaoning, Shanxi, Hunan, Inner Mongolia",
-      "isAccessibleForFree": true,
+      "isAccessibleForFree": false,
       "additionalType": "ready",
       "source": "datasets/crrs-rural-revitalization-survey.md"
     },

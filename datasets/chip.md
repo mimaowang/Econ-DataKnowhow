@@ -118,7 +118,8 @@ access_routes:
   - After passing the review, download it from the link in the email; the official reminder link will be valid within 5 days.
   deliverable: CHIP1988/1995/2002/2007/2013/2018 approved data and related documents.
   cost: free
-  last_checked: '2026-07-10'
+  last_checked: '2026-10-26'
+  caveat: On 2026-10-26 the official BNU instructions at https://bs.bnu.edu.cn/zgjmsrfpdcsjk/sjsq/index.html still describe this process and link this portal, but the portal returned a deployment-side 502 in the browser. Retry through the official instructions; do not assume a live registration service. The separate ICPSR route below covers 2002 only.
 - route: ICPSR 21741 public-use CHIP 2002
   access_status: available
   direct_url: https://www.icpsr.umich.edu/web/DSDR/studies/21741
@@ -141,7 +142,7 @@ access:
   - unknown
   api: false
   how_to_get: Register at chip.bnu.edu.cn, select the CHIP sub-project of a specific year and submit the application; it usually
-    takes 2 working days to review, and the download link will be sent by email and must be used within 5 days.
+    takes 2 working days to review, and the download link will be sent by email and must be used within 5 days. These remain the published instructions, but the portal returned 502 on 2026-10-26; consult the official BNU application note and retry later. ICPSR 21741 is an independent 2002-only alternative, not access to all waves.
 caveats: The six rounds are repeated cross-sections rather than household panels; provinces and questionnaires change across
   rounds. The CHIP sample comes from the NBS regular household survey large sample frame and has an independent questionnaire
   design, which cannot be equated with the UHS/RHS original micro data.
@@ -192,6 +193,13 @@ used_by:
   data_note: >-
     Uses CHIP household survey data (1995, 2002, 2007 waves) combined with World Bank Enterprise Surveys (2001-2004) for firm-level analysis. Links regional tariff exposure to individual employment status (precarious vs. long-term). Finds workers in regions more exposed to import tariff cuts were significantly more likely to be in precarious jobs — an average tariff cut increased precarious employment probability by ~15pp. Precarious employment rose sharply from ~3% (1995) to ~28% (2007). Firm-level mechanism — smaller, less productive firms hired more temporary workers in response to import competition.
 provenance:
+- source: https://bs.bnu.edu.cn/zgjmsrfpdcsjk/sjsq/index.html and http://chip.bnu.edu.cn/ (browser-checked 2026-10-26)
+  field_scope:
+  - Published registration, review and expiring email-link instructions remain on the official BNU page
+  - The linked portal returned a deployment-side 502; no new application or delivery tested
+  added: '2026-10-26'
+  confidence: high
+  verified: true
 - source: https://www.journals.uchicago.edu/doi/abs/10.1086/660887
   field_scope:
   - final JPE article identity and DOI
@@ -260,3 +268,5 @@ CHIP is a long-term repeated cross-section of China's income distribution and la
 ## Get recipe
 
 Register at `chip.bnu.edu.cn`, choose the subproject for the required wave, and submit an application. The provider states that review usually takes two working days; approved download links are sent by email and normally expire after five days.
+
+The [official BNU instructions](https://bs.bnu.edu.cn/zgjmsrfpdcsjk/sjsq/index.html) still point there, but the portal returned a deployment-side 502 on 2026-10-26. This is a current service barrier, not evidence that CHIP has vanished. For a 2002 design, consider the separately documented ICPSR 21741 route; it does not substitute for another CHIP wave or for UHS raw microdata.
