@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T11:34:44+08:00",
+  "generated_at": "2026-10-26T18:28:33+08:00",
   "status": "ok",
   "errors": [],
   "warnings": [
@@ -17,7 +17,7 @@
     "done": 434,
     "failed": 157,
     "candidates": 49,
-    "changes": 561
+    "changes": 562
   },
   "idea_benchmark_cases": 10,
   "blind_benchmark_v2_cases": 27,
@@ -66,7 +66,7 @@
   },
   "input_fingerprint": {
     "algorithm": "sha256",
-    "digest": "692ae6d0b526d9362054fe05ef3c23e89f05355dc7da8ec5d2d4dc24cf0d4f94",
+    "digest": "266d7ed7add3f294c25999131895da67517c361c59a298e84b6c484d5d413484",
     "file_count": 168
   }
 }

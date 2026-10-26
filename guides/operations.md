@@ -190,6 +190,8 @@ Generated files are outputs, not canonical sources: `DATASET_INDEX.md`, `ledgers
 
 The public health report describes durable catalog inputs so the same report works in a fresh clone. Local fetch-cache diagnostics are printed separately by the validator and still fail the command when they expose an unrecorded challenge page; the raw cache is not a publication dependency. The static site serves copied canonical Markdown unchanged using `.nojekyll`. Its builder preserves existing files, and the freshness check reports unexpected pages for review rather than silently deleting them.
 
+The weekly **Check external link freshness** workflow is a separate network diagnostic. Its run summary shows how many URLs were sampled and lists the ones needing review; a successful job means the scan finished, not that every link was reachable. Read a failed URL in context before changing a record: a login wall, denied automated request or timeout does not establish that the data are gone. Unexpected script errors fail the job. For a local report, run `python scripts/check_links.py --summary link-summary.md`; add `--strict` when you explicitly want any unsuccessful URL to produce a nonzero exit code.
+
 ## Queue and provenance
 
 The task lifecycle is:
