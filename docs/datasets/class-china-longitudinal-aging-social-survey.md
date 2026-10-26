@@ -10,11 +10,10 @@ aka:
 - RUC CLASS
 provider: >-
   中国人民大学老年学研究所 (Institute of Gerontology, Renmin University of
-  China) designs and implements CLASS; data distributed via RUC's 健康中国
-  研究院 CLASS数据申请 route and the CNSDA archive (中国社会调查数据资料库,
-  cnsda.ruc.edu.cn / cnsda.org). Verified from the official project site
-  class.ruc.edu.cn (fetched 2026-08-15) and the official RUC application
-  note (jkzgyjy.ruc.edu.cn, fetched+read 2026-08-15).
+  China) designs and implements CLASS. The current catalog/application start
+  is RUC's CSSD CLASS data space, officially linked by the project site's
+  platform-launch announcement (browser-read 2026-10-26). Older RUC email
+  instructions and CNSDA archive references remain as dated sources below.
 china_related: true
 domains:
 - aging
@@ -31,11 +30,11 @@ data_pathway:
     CLASS individual (and community) questionnaire microdata. Per the
     official RUC application note (read 2026-08-15), RUC freely opens the
     2014, 2016, 2018 and 2020 individual questionnaire data to academia;
-    applicants send a purpose statement plus a signed data-use agreement to
-    class_ruc@163.com and receive the data by email within about 7 working
-    days after review. The class.ruc.edu.cn FAQ additionally states that
-    project data can be downloaded free after registration at the CNSDA
-    archive (中国国家调查数据库).
+    the current CSSD catalog instructs applicants to email the signed
+    agreement to class_ruc@163.com with their CSSD username and requested
+    wave, then use the file's download/application action and supply the
+    research purpose for review. The older note's seven-working-day email
+    delivery is historical, not a promise for the current CSSD workflow.
   availability: ready-made
   ordinary_researcher_feasible: true
   summary: >-
@@ -46,13 +45,13 @@ data_pathway:
     community questionnaires; follow-ups in 2016-17, 2018-19 and 2020-21
     maintained about 12,000 surviving elderly respondents. Free
     application-based access for academia to 2014/2016/2018/2020 individual
-    data, plus a free registration-download route via CNSDA per the official
-    FAQ.
+    data, with the current CSSD file-specific application procedure below.
   barrier: >-
-    Application-gated (purpose statement + signed agreement via email).
+    Application-gated (CSSD account, purpose statement and signed agreement
+    emailed with username and wave; approval is file-specific).
     The delivered-file geography fields and the complete variable inventory
     still need checking against the selected wave's questionnaire/codebook.
-  last_checked: '2026-09-28'
+  last_checked: '2026-10-26'
 
 unit_of_observation: Individual older adult respondent with household context; community questionnaire per sampled community
 structure: panel (longitudinal follow-up of surviving elderly; baseline 2014, follow-ups 2016-17/2018-19/2020-21)
@@ -138,8 +137,22 @@ joins:
   evidence_status: plausible
 
 access_routes:
-- route: RUC CLASS数据申请 (email application)
+- route: RUC CSSD CLASS data space
   access_status: by-application
+  direct_url: https://cssd.ruc.edu.cn/dataspace/CLASS
+  requirements:
+  - CSSD account and the platform's identity and data-use conditions
+  - Signed CLASS data-use agreement emailed to class_ruc@163.com with CSSD username and exact requested wave/year
+  steps:
+  - Open the official CLASS data space and select the wave; download its electronic data-use agreement.
+  - Sign and email the agreement with the CSSD username and requested wave to the project contact.
+  - Use the file's download/application action, state the research purpose and wait for review before obtaining restricted files.
+  deliverable: Approved wave-specific survey files and questionnaires; visible 2016/2020 entries include SPSS .sav files and PDF questionnaires, while the catalog also lists 2018.
+  cost: free
+  last_checked: '2026-10-26'
+  caveat: The catalog was read without login; no application, approval or file download was performed. Catalogue project/file counts are not survey-wave counts. Latest generally available wave beyond the recorded 2020 set was not established.
+- route: RUC CLASS数据申请 (email application)
+  access_status: historical-documentation
   direct_url: http://jkzgyjy.ruc.edu.cn/sjzy/CLASSsjsq/index.htm
   requirements:
   - Purpose statement (research aim, plan, data needed)
@@ -152,9 +165,9 @@ access_routes:
   deliverable: CLASS individual questionnaire microdata for approved waves (2014/2016/2018/2020)
   cost: free
   last_checked: '2026-08-15'
-  caveat: contact 010-82507289 / sphoffice@ruc.edu.cn listed on the page; the 健康中国研究院 is the current host of the CLASS data page
+  caveat: Historical RUC instructions read in August 2026; use the current CSSD procedure above rather than promising email delivery within seven working days.
 - route: CNSDA archive (中国社会调查数据资料库)
-  access_status: by-application
+  access_status: needs-verification
   direct_url: http://cnsda.ruc.edu.cn/
   requirements: registration at CNSDA (中国国家调查数据库); per the official FAQ, register, log in, download free
   steps:
@@ -163,19 +176,20 @@ access_routes:
   deliverable: CLASS data files via the archive (exact per-wave inventory unread)
   cost: free
   last_checked: '2026-08-15'
-  caveat: cnsda.ruc.edu.cn DNS failed from this environment on 2026-08-15 (blocked, not absence); cnsda.org project pages fetched OK
+  caveat: cnsda.ruc.edu.cn failed DNS in GitHub Actions and returned an empty browser response on 2026-10-26; use the official CSSD data space. The August check of cnsda.org is a historical observation, not a current access guarantee.
 
 access:
-  url: http://jkzgyjy.ruc.edu.cn/sjzy/CLASSsjsq/index.htm
+  url: https://cssd.ruc.edu.cn/dataspace/CLASS
   cost: free
   license: Data-use agreement per application; academic use expected
   format:
-  - microdata files (exact formats unread)
+  - SPSS .sav (visible 2016/2020 catalog entries; authenticated delivery not inspected)
+  - PDF questionnaires and data-use agreement
   api: false
-  how_to_get: Email application route (purpose + signed agreement to class_ruc@163.com) or CNSDA registration-download route; free of charge.
+  how_to_get: Start at the official CSSD CLASS data space. Email the signed agreement to class_ruc@163.com with the CSSD username and requested wave; then use the file's application action, state the purpose and await review. Do not treat the old CNSDA endpoint or historical email turnaround as the current delivery process.
 caveats:
-- Exact per-wave variable sets, geography fields and file formats not read this round; verify in the delivered files.
-- The class.ruc.edu.cn site is a small project/evaluation subsite (2014 materials, news to 2016); the data pages moved to the 健康中国研究院 and CNSDA.
+- Exact per-wave variable sets and geography fields still need checking in approved files; the visible catalog's .sav labels do not establish every wave's format.
+- The official project site now links the 2026 CSSD platform announcement; older RUC and CNSDA instructions remain dated evidence, not the recommended starting point.
 - Waves beyond 2020 not verified.
 
 quality:
@@ -207,6 +221,14 @@ used_by:
     universal field definition in every CLASS delivery.
 
 provenance:
+- source: http://class.ruc.edu.cn/info/1021/1019.htm (official CSSD launch announcement) and https://cssd.ruc.edu.cn/dataspace/CLASS (browser-read 2026-10-26)
+  field_scope:
+  - Officially linked current platform and CLASS identity
+  - File-specific agreement, email, CSSD username, wave and application/review steps
+  - Visible 2016/2020 SPSS files and questionnaires and an additional 2018 catalog entry; no authenticated download
+  added: '2026-10-26'
+  confidence: high
+  verified: true
 - source: http://class.ruc.edu.cn/ (official project site, fetched 2026-08-15)
   field_scope:
   - project identity (RUC)
@@ -260,7 +282,7 @@ related_datasets:
 
 ## Positioning in one sentence
 
-CLASS is RUC's national longitudinal survey of older adults (baseline 2014, 11,511 respondents across 28 provinces, follow-ups through 2020-21) with a verified free application route (purpose statement + signed agreement by email) for the 2014/2016/2018/2020 individual data; an open 2024 article confirms a usable 2018 urban/non-urban analysis.
+CLASS is RUC's national longitudinal survey of older adults (baseline 2014, 11,511 respondents across 28 provinces). Its documented 2014/2016/2018/2020 individual-data set is reached through a free, application-controlled route, now starting at CSSD; an open 2024 article confirms a usable 2018 urban/non-urban analysis.
 
 ## Select rules
 
@@ -270,13 +292,13 @@ CLASS is RUC's national longitudinal survey of older adults (baseline 2014, 11,5
 
 ## Get recipe
 
-1. Read the official application note on jkzgyjy.ruc.edu.cn.
-2. Send research plan + signed data-use agreement to class_ruc@163.com.
-3. Expect data within ~7 working days; alternatively register at CNSDA for the download route (browser check needed - DNS flaky from some networks).
+1. Open the [CSSD CLASS data space](https://cssd.ruc.edu.cn/dataspace/CLASS), register under the platform's conditions, select the wave and obtain the electronic agreement.
+2. Send the signed agreement to class_ruc@163.com, identifying the CSSD username and exact wave/year.
+3. Use the selected file's download/application action and state the research purpose for approval. The current catalog lists restricted survey files; an open catalog page is not an approved download. The old email turnaround and CNSDA route are retained as historical instructions only.
 
 ## Connections and Limitations
 
-Panel linkage is designed across waves; geography fields per wave need checking in the delivered file before an external spatial merge. The official CLASS site itself hosts only 2014-era materials - use the 健康中国研究院 page for data. Waves beyond 2020 are unverified. The 2024 paper verifies an urban/non-urban 2018 use case, but its cleaned subset and grouping implementation are not a released CLASS deliverable.
+Panel linkage is designed across waves; geography fields per wave need checking in the delivered file before an external spatial merge. Use the officially linked CSSD route rather than the unavailable legacy CNSDA host. The new catalog describes later fieldwork, but this review does not establish general release beyond the recorded 2020 wave. The 2024 paper verifies an urban/non-urban 2018 use case, but its cleaned subset and grouping implementation are not a released CLASS deliverable.
 
 ## Decision sufficiency check
 

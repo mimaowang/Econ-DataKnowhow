@@ -91,21 +91,20 @@ linkable_keys:
 - County code (authorization required)
 - Can be joined with macro data at the regional level
 access_routes:
-- route: cnsda
+- route: RUC CSSD CGSS data space
   access_status: available-with-application
-  direct_url: http://cnsda.ruc.edu.cn/
-  requirements: Platform registration, research purpose and data agreement; the opening status of different rounds needs to
-    be confirmed on the platform.
+  direct_url: https://cssd.ruc.edu.cn/dataspace/cgss
+  requirements: Register on CSSD, complete real-name verification and the data-use agreement. Public files and restricted files have different permissions; restricted files require approval.
   steps:
-  - Register with CNSDA.
-  - Search for CGSS and specific year.
-  - Submit the application and download the approval data and questionnaire.
-  deliverable: Public round Stata/SPSS/CSV data and questionnaire documents.
+  - Start at the CGSS data space linked through RUC's official CSSD launch announcement.
+  - Register and complete the platform's identity and agreement steps; select the required wave and questionnaire.
+  - Download public files under the platform's conditions; apply separately for restricted files rather than assuming all waves or fields are covered.
+  deliverable: Wave-specific public data and questionnaire files. The visible catalog includes CGSS2018 and CGSS2021 data labelled SPSS and Stata 14+, with PDF questionnaires; catalog .tab names are not a verified downloaded archive format.
   cost: free
-  last_checked: '2026-07-10'
+  last_checked: '2026-10-26'
+  caveat: The legacy CNSDA endpoint http://cnsda.ruc.edu.cn/ failed DNS in GitHub Actions and returned an empty response in the browser on this date. Use the officially linked CSSD route; this check did not create an account or download microdata.
 access:
-  url: 'http://cgss.ruc.edu.cn (CGSS official website); Data Application: http://cnsda.ruc.edu.cn (China National Survey Database
-    CNSDA)'
+  url: https://cssd.ruc.edu.cn/dataspace/cgss
   cost: free
   license: Academic research only, registration + signing of agreement required
   format:
@@ -113,7 +112,7 @@ access:
   - csv
   - sav(SPSS)
   api: false
-  how_to_get: 1) Visit http://cnsda.ruc.edu.cn and register with an academic email or institutional documentation; 2) search for CGSS and submit a data-use application; 3) after approval, download the available waves. Access is free but requires review.
+  how_to_get: Open the RUC CSSD CGSS data space, register and complete real-name verification and the data-use agreement, then select the wave. Public files are downloadable under those conditions; restricted files require an additional application and approval. The current route is not the legacy CNSDA endpoint.
 caveats: CGSS is a repeated cross-section rather than a panel - different samples are interviewed in each round and cannot
   track changes in the same person. The questionnaire was revised on a large scale after 2010, and some variables were discontinued
   across rounds. Some sensitive topics (such as politically sensitive issues) may be removed to comply with censorship requirements.
@@ -168,6 +167,14 @@ used_by:
   data_note: >-
     Uses CGSS 12 waves (2003-2021) as the primary individual-level data source, combined with Census-based provincial fertility data. Cohort triple-difference (DDD) exploiting staggered provincial implementation of China's "Later, Longer, Fewer" (LLF) campaign in the 1970s. Finds LLF reduced the gender gap in managerial positions by ~20% and administrative rank by ~18%. Mechanism — women pursued more college education, increased labor input, and relied less on offspring for old-age support. Effects stronger in state sector (~25%) and non-white-collar, non-female-dominated industries.
 provenance:
+- source: http://cgss.ruc.edu.cn/info/1014/1041.htm (official CSSD launch announcement, 2026-08-27) and https://cssd.ruc.edu.cn/dataspace/cgss (browser-read 2026-10-26)
+  field_scope:
+  - Official platform link and registration, real-name verification, agreement and file-specific approval conditions
+  - Visible CGSS2018/2021 catalog entries, format labels and questionnaires; no authenticated microdata delivery tested
+  - Replacement of the current acquisition start, not a change to survey identity, paper-use evidence or release coverage
+  added: '2026-10-26'
+  confidence: high
+  verified: true
 - source: CGSS official site http://cgss.ruc.edu.cn and CNSDA platform http://cnsda.ruc.edu.cn (supports survey design, waves, variable coverage, and access conditions)
   added: '2026-07-08'
   confidence: high
@@ -201,9 +208,9 @@ Unlike CFPS/CHARLS which is biased towards economic variables (income/health/cog
 - **Internet module** (newly added in recent years): Internet frequency, social media use, information sources
 
 ## How to get
-1. Visit cnsda.ruc.edu.cn (China National Survey Database) and register an account.
-2. Search "CGSS" → Submit data use application → Fill in the research purpose + Sign the data use agreement.
-3. Download all rounds after approval (Stata/SPSS/CSV format). Free.
+1. Open the [official CSSD CGSS data space](https://cssd.ruc.edu.cn/dataspace/cgss), register and complete real-name verification and the data-use agreement.
+2. Select the wave and its questionnaire. The catalog distinguishes public files from files requiring separate approval; public-file access is not a grant to every restricted field.
+3. Download the permitted files and inspect the supplied format, questionnaire and identifiers. The browser check confirmed the catalog and instructions, not an authenticated download. The old CNSDA URL is retained in provenance as a historical route, not the recommended starting point.
 
 ## Connections to other data
 - **CFPS/CHARLS**: The core variables of the CGSS covering attitudes and values are the weaknesses of the CFPS/CHARLS - the two complement each other. "Province/Year" can be used for cross-validation at the macro level.

@@ -3149,22 +3149,23 @@
       ],
       "access_routes": [
         {
-          "route": "cnsda",
+          "route": "RUC CSSD CGSS data space",
           "access_status": "available-with-application",
-          "direct_url": "http://cnsda.ruc.edu.cn/",
-          "requirements": "Platform registration, research purpose and data agreement; the opening status of different rounds needs to be confirmed on the platform.",
+          "direct_url": "https://cssd.ruc.edu.cn/dataspace/cgss",
+          "requirements": "Register on CSSD, complete real-name verification and the data-use agreement. Public files and restricted files have different permissions; restricted files require approval.",
           "steps": [
-            "Register with CNSDA.",
-            "Search for CGSS and specific year.",
-            "Submit the application and download the approval data and questionnaire."
+            "Start at the CGSS data space linked through RUC's official CSSD launch announcement.",
+            "Register and complete the platform's identity and agreement steps; select the required wave and questionnaire.",
+            "Download public files under the platform's conditions; apply separately for restricted files rather than assuming all waves or fields are covered."
           ],
-          "deliverable": "Public round Stata/SPSS/CSV data and questionnaire documents.",
+          "deliverable": "Wave-specific public data and questionnaire files. The visible catalog includes CGSS2018 and CGSS2021 data labelled SPSS and Stata 14+, with PDF questionnaires; catalog .tab names are not a verified downloaded archive format.",
           "cost": "free",
-          "last_checked": "2026-07-10"
+          "last_checked": "2026-10-26",
+          "caveat": "The legacy CNSDA endpoint http://cnsda.ruc.edu.cn/ failed DNS in GitHub Actions and returned an empty response in the browser on this date. Use the officially linked CSSD route; this check did not create an account or download microdata."
         }
       ],
       "access": {
-        "url": "http://cgss.ruc.edu.cn (CGSS official website); Data Application: http://cnsda.ruc.edu.cn (China National Survey Database CNSDA)",
+        "url": "https://cssd.ruc.edu.cn/dataspace/cgss",
         "cost": "free",
         "license": "Academic research only, registration + signing of agreement required",
         "format": [
@@ -3173,7 +3174,7 @@
           "sav(SPSS)"
         ],
         "api": false,
-        "how_to_get": "1) Visit http://cnsda.ruc.edu.cn and register with an academic email or institutional documentation; 2) search for CGSS and submit a data-use application; 3) after approval, download the available waves. Access is free but requires review."
+        "how_to_get": "Open the RUC CSSD CGSS data space, register and complete real-name verification and the data-use agreement, then select the wave. Public files are downloadable under those conditions; restricted files require an additional application and approval. The current route is not the legacy CNSDA endpoint."
       },
       "caveats": "CGSS is a repeated cross-section rather than a panel - different samples are interviewed in each round and cannot track changes in the same person. The questionnaire was revised on a large scale after 2010, and some variables were discontinued across rounds. Some sensitive topics (such as politically sensitive issues) may be removed to comply with censorship requirements. The representativeness of rural samples was weak in the early stage.",
       "quality": {
@@ -3233,6 +3234,17 @@
       ],
       "provenance": [
         {
+          "source": "http://cgss.ruc.edu.cn/info/1014/1041.htm (official CSSD launch announcement, 2026-08-27) and https://cssd.ruc.edu.cn/dataspace/cgss (browser-read 2026-10-26)",
+          "field_scope": [
+            "Official platform link and registration, real-name verification, agreement and file-specific approval conditions",
+            "Visible CGSS2018/2021 catalog entries, format labels and questionnaires; no authenticated microdata delivery tested",
+            "Replacement of the current acquisition start, not a change to survey identity, paper-use evidence or release coverage"
+          ],
+          "added": "2026-10-26",
+          "confidence": "high",
+          "verified": true
+        },
+        {
           "source": "CGSS official site http://cgss.ruc.edu.cn and CNSDA platform http://cnsda.ruc.edu.cn (supports survey design, waves, variable coverage, and access conditions)",
           "added": "2026-07-08",
           "confidence": "high",
@@ -3245,7 +3257,7 @@
         "charls"
       ],
       "source_path": "datasets/cgss.md",
-      "description_markdown": "## Positioning in one sentence\nCGSS is China’s longest-running comprehensive social attitude survey with the widest coverage—approximately 12,000 people per year since 2003,\nCovering \"soft\" variables such as social attitudes, class, political participation, and values,\nIt is the core data source for studying **China's social changes, public attitudes and values**.\nUnlike CFPS/CHARLS which is biased towards economic variables (income/health/cognition), the unique value of CGSS is\n\"What people think about society\" - happiness, fairness, trust, political attitudes, etc.\n\n## Research questions suitable for answering/Typical identification strategies\n- **\"What do the Chinese public think of\n- **Social stratification and subjective class identity**: How does objective income/education map to subjective class identity? Is there an expanding trend in \"middle-class anxiety\" or \"lower-class identification\"?\n- **Political Economy of Government Trust**: Differences in trust levels at different levels of government (central/provincial/city/county) and their relationship with the quality of public services.\n- **Not suitable for use**: Research that requires individual panels to track causal effects (CGSS is a repeated cross-section, not a panel), child/adolescent issues (only 18+), enterprise/industry level research.\n- **Causal identification techniques for repeated cross-sections**: Multiple rounds of CGSS can be combined into a \"synthetic panel\" by province/city/year, and DID can be used to estimate the impact of provincial policy changes on public attitudes.\n\n## Key variables/modules\n- **Core attitude module**: happiness, life satisfaction, social justice, interpersonal trust, government trust (levels)\n- **Class and Mobility Module**: Subjective socioeconomic status, parental education/occupation, personal education/income/occupation\n- **Political Participation Module**: voting, community participation, social organizations, petitioning\n- **Labor force module**: Employment status (employer/employee/self-employed/farmer), income, working hours, occupation\n- **Health Module**: Self-assessed health, mental health (short version of GHQ)\n- **Internet module** (newly added in recent years): Internet frequency, social media use, information sources\n\n## How to get\n1. Visit cnsda.ruc.edu.cn (China National Survey Database) and register an account.\n2. Search \"CGSS\" → Submit data use application → Fill in the research purpose + Sign the data use agreement.\n3. Download all rounds after approval (Stata/SPSS/CSV format). Free.\n\n## Connections to other data\n- **CFPS/CHARLS**: The core variables of the CGSS covering attitudes and values are the weaknesses of the CFPS/CHARLS - the two complement each other. \"Province/Year\" can be used for cross-validation at the macro level.\n- **Statistical Yearbook**: Use \"province code/year\" to connect provincial GDP/finance/public services and other indicators to construct policy impact variables.\n- **and CHNS/CHFS**: both are large-scale social surveys and can be cross-validated on common variables such as income and education.\n\n## Remarks / Pitfalls\n- **Not the panel! ** This is the most fundamental difference between CGSS and CFPS/CHARLS - resampling is done in each round and individual changes cannot be tracked. When making causal inferences, a composite panel method or identification limited to the regional level is required.\n- **Major changes to the questionnaire in 2010**: After 2010, the CGSS was connected with the ISSP (International Social Survey Project), and the questionnaire structure was significantly adjusted - the inter-temporal comparison before/after 2010 needs to check the continuity variable by variable.\n- **Review of Sensitive Issues**: Politically sensitive issues may be removed or have their wording changed in some years, so please pay attention when doing time series analysis.",
+      "description_markdown": "## Positioning in one sentence\nCGSS is China’s longest-running comprehensive social attitude survey with the widest coverage—approximately 12,000 people per year since 2003,\nCovering \"soft\" variables such as social attitudes, class, political participation, and values,\nIt is the core data source for studying **China's social changes, public attitudes and values**.\nUnlike CFPS/CHARLS which is biased towards economic variables (income/health/cognition), the unique value of CGSS is\n\"What people think about society\" - happiness, fairness, trust, political attitudes, etc.\n\n## Research questions suitable for answering/Typical identification strategies\n- **\"What do the Chinese public think of\n- **Social stratification and subjective class identity**: How does objective income/education map to subjective class identity? Is there an expanding trend in \"middle-class anxiety\" or \"lower-class identification\"?\n- **Political Economy of Government Trust**: Differences in trust levels at different levels of government (central/provincial/city/county) and their relationship with the quality of public services.\n- **Not suitable for use**: Research that requires individual panels to track causal effects (CGSS is a repeated cross-section, not a panel), child/adolescent issues (only 18+), enterprise/industry level research.\n- **Causal identification techniques for repeated cross-sections**: Multiple rounds of CGSS can be combined into a \"synthetic panel\" by province/city/year, and DID can be used to estimate the impact of provincial policy changes on public attitudes.\n\n## Key variables/modules\n- **Core attitude module**: happiness, life satisfaction, social justice, interpersonal trust, government trust (levels)\n- **Class and Mobility Module**: Subjective socioeconomic status, parental education/occupation, personal education/income/occupation\n- **Political Participation Module**: voting, community participation, social organizations, petitioning\n- **Labor force module**: Employment status (employer/employee/self-employed/farmer), income, working hours, occupation\n- **Health Module**: Self-assessed health, mental health (short version of GHQ)\n- **Internet module** (newly added in recent years): Internet frequency, social media use, information sources\n\n## How to get\n1. Open the [official CSSD CGSS data space](https://cssd.ruc.edu.cn/dataspace/cgss), register and complete real-name verification and the data-use agreement.\n2. Select the wave and its questionnaire. The catalog distinguishes public files from files requiring separate approval; public-file access is not a grant to every restricted field.\n3. Download the permitted files and inspect the supplied format, questionnaire and identifiers. The browser check confirmed the catalog and instructions, not an authenticated download. The old CNSDA URL is retained in provenance as a historical route, not the recommended starting point.\n\n## Connections to other data\n- **CFPS/CHARLS**: The core variables of the CGSS covering attitudes and values are the weaknesses of the CFPS/CHARLS - the two complement each other. \"Province/Year\" can be used for cross-validation at the macro level.\n- **Statistical Yearbook**: Use \"province code/year\" to connect provincial GDP/finance/public services and other indicators to construct policy impact variables.\n- **and CHNS/CHFS**: both are large-scale social surveys and can be cross-validated on common variables such as income and education.\n\n## Remarks / Pitfalls\n- **Not the panel! ** This is the most fundamental difference between CGSS and CFPS/CHARLS - resampling is done in each round and individual changes cannot be tracked. When making causal inferences, a composite panel method or identification limited to the regional level is required.\n- **Major changes to the questionnaire in 2010**: After 2010, the CGSS was connected with the ISSP (International Social Survey Project), and the questionnaire structure was significantly adjusted - the inter-temporal comparison before/after 2010 needs to check the continuity variable by variable.\n- **Review of Sensitive Issues**: Politically sensitive issues may be removed or have their wording changed in some years, so please pay attention when doing time series analysis.",
       "research_position": ""
     },
     {
@@ -3505,13 +3517,13 @@
         "start": 2011,
         "end": "ongoing",
         "last_confirmed_release": 2021,
-        "coverage_note": "Six rounds confirmed for 2011/2013/2015/2017/2019/2021",
-        "last_checked": "2026-07-10"
+        "coverage_note": "The official April 2026 application note opens 2011/2013/2015/2017/2019/2021 to academic applications; 2023/2025 collection is completed but those waves are not generally open for application in that note.",
+        "last_checked": "2026-10-26"
       },
       "frequency": [
         "biennial"
       ],
-      "sample_size": "Approximately 8,438 households/29,324 people in 2011; subsequent rounds expanded to approximately 40,000 households/year",
+      "sample_size": "Official application note lists 8,438 households in 2011, 28,141 in 2013, 37,289 in 2015, 40,011 in 2017, 34,643 in 2019 and 22,027 in the 2021 wave; the last wave's fieldwork spans 2021-2022.",
       "key_variables": [
         "Household assets (real estate/financial assets/industrial and commercial assets/vehicles/land)",
         "Household debt (mortgage/consumer loan/business loan/private loan)",
@@ -3593,28 +3605,28 @@
         {
           "route": "chfs-data-center",
           "access_status": "available-with-application",
-          "direct_url": "https://chfs.swufe.edu.cn/sjzx.htm",
+          "direct_url": "https://chfser.swufe.edu.cn/data/",
           "requirements": "Registration, study description, and data use agreement.",
           "steps": [
-            "Enter the CHFS data center.",
+            "Read the current official application note at https://chfs.swufe.edu.cn/sjzx/sjsq.htm and follow its data-registration link.",
             "Register and submit a research proposal.",
             "Download the approved round and documents after review."
           ],
-          "deliverable": "Family/personal data on public application version; sensitive fields provided by permissions.",
+          "deliverable": "Approved 2011-2021 household/individual survey waves in Stata format, with questionnaires and usage documentation; sensitive fields remain permission-dependent.",
           "cost": "free",
-          "last_checked": "2026-07-10"
+          "last_checked": "2026-10-26",
+          "caveat": "The old https://chfs.swufe.edu.cn/sjzx.htm page returns 404. The current official link reaches the CHFS data-platform login; this review did not submit an application or verify an account's download permissions. Completed 2023/2025 collection is not general release."
         }
       ],
       "access": {
-        "url": "https://chfs.swufe.edu.cn (CHFS official website); Data application: https://chfs.swufe.edu.cn/sjzx.htm",
+        "url": "https://chfser.swufe.edu.cn/data/",
         "cost": "free",
         "license": "Academic research only, registration + signing of data use agreement required",
         "format": [
-          "dta",
-          "csv"
+          "dta"
         ],
         "api": false,
-        "how_to_get": "1) Visit https://chfs.swufe.edu.cn and register; 2) submit an application and research plan and sign the data-use agreement; 3) after approval, download the available waves. Access is free but application-controlled."
+        "how_to_get": "Read https://chfs.swufe.edu.cn/sjzx/sjsq.htm, then use its official https://chfser.swufe.edu.cn/data/ registration/application link. Complete the platform's research-use and agreement requirements and obtain only the approved waves and fields. The April 2026 note offers Stata data and documents for the six 2011-2021 waves, not general access to 2023/2025."
       },
       "caveats": "The core strength of CHFS lies in the detailed measurement of assets/liabilities/properties - this is the weakness of CFPS/CHARLS. However, CHFS has limited coverage in areas such as health, cognition, and attitude. Some sensitive financial variables (accurate property market value, private lending) may be underreported. The baseline sample size in 2011 was relatively small (~8,000 households) and expanded significantly after 2013.",
       "quality": {
@@ -3675,6 +3687,18 @@
       ],
       "provenance": [
         {
+          "source": "https://chfs.swufe.edu.cn/sjzx/sjsq.htm (official application note dated April 2026), https://chfs.swufe.edu.cn/sjzx/gksjk.htm and their linked https://chfser.swufe.edu.cn/data/ portal (browser-read 2026-10-26)",
+          "field_scope": [
+            "Current application URL replacing the old 404 data-center page",
+            "Six academic-application waves through 2021 versus completed but not generally open 2023/2025 waves",
+            "Wave-specific household sample sizes, 2021-2022 fieldwork, Stata deliverable and accompanying documents",
+            "Portal/login availability only; no application, credentials or downloaded survey files"
+          ],
+          "added": "2026-10-26",
+          "confidence": "high",
+          "verified": true
+        },
+        {
           "source": "Editorial consistency review of this record's variable coverage and application-controlled access route (2026-09-29)",
           "field_scope": [
             "Aligned research-use prose with the distinction between measured variables and causal identification.",
@@ -3716,7 +3740,7 @@
         "chns"
       ],
       "source_path": "datasets/chfs.md",
-      "description_markdown": "## Positioning in one sentence\nCHFS (China Household Finance Survey) is China’s most specialized **household finance** tracking survey conducted by Southwestern University of Finance and Economics since 2011——\nTaking household assets (real estate/finance/industrial and commercial), liabilities (mortgage/consumer loan/private lending) and financial behavior as core variables,\nFills the in-depth gap of CFPS/CHARLS/CGSS in household wealth and financial behavior.\nThe survey is mainly biennial, with later waves covering about 40,000 households. The documented research-access route is free but application-controlled: survey frequency does not guarantee a release every two years, and approval covers only the waves and fields granted by the provider.\n\n## Research questions suitable for answering/Typical identification strategies\n- **The \"balance sheet\" of Chinese households**: Joint measures of assets (housing units, reported property values and financial holdings) and liabilities (loan balances, interest rates and terms) support net-worth and wealth-distribution research. Prefer CHFS when this balance-sheet detail is central rather than the broader education and health coverage of CFPS.\n- **Housing and Household Behavior**: Multiple-property ownership, vacancy and mortgage-to-income ratios support research on how housing positions relate to household consumption, borrowing and labor supply.\n- **Entrepreneurship and Financial Constraints**: Business operation, start-up funding and credit application/approval records let researchers compare financing access with entrepreneurial activity. These are measured inputs to a causal design, not causal effects by themselves.\n- **Not suitable for**: health/biomarker research (please use CHARLS), cognition/child development (please use CFPS), social attitudes/values (please use CGSS), agricultural production details (please use RHS).\n\n## Key variables/modules\n- **Asset module** (core value): real estate (number of units/area/market value/year of purchase), financial assets (deposits/stocks/funds/financial management/gold/loans), industrial and commercial assets, vehicles, land\n- **Liability module** (core value): housing loan (commercial loan/provident fund/interest rate), consumer loan, business loan, credit card, private loan (amount/interest rate/source)\n- **Income and Consumption**: wages/business/property/transfer income, eight categories of consumer expenditures\n- **Entrepreneurship Module**: Whether to operate industry and commerce, industry, employees, income, source of start-up capital\n- **Financial Literacy**: Interest rate calculation, understanding of inflation, understanding of risk diversification\n- **Social Security**: Medical insurance type, pension type and amount, minimum living security\n\n## How to get\n1. Visit https://chfs.swufe.edu.cn → Register an account.\n2. Submit a data use application (research purpose + sign a data use agreement) in the \"Data Center\".\n3. After approval, download the waves, fields and documentation authorized for your application, in the formats actually supplied. The documented route is free; sensitive fields may require separate permission.\n\n## Connections to other data\n- **CFPS**: Cross-validation of household income/consumption/demographic variables; CFPS covers all ages + education/health depth is better, CHFS asset/liability depth is better → the two complement each other.\n- **CHARLS**: CHARLS contains asset/pension information for middle-aged and elderly people 45+, complementary to CHARLS health/biomarkers.\n- **Statistical Yearbook**: Use \"province/city code\" to connect macro indicators such as housing prices, GDP, and financial development.\n- **Weather exposure**: County-level daily-temperature matching is used in the recorded literature. ERA5-Land is a plausible reproducible grid source when approved CHFS geography and interview timing permit the match, but this record does not claim that the cited heat paper used ERA5-Land.\n\n## Remarks / Pitfalls\n- **House market values are self-reported**: Respondents may overestimate or underestimate property market values – be aware of measurement error when doing wealth distribution analyses.\n- **Private loans are underreported**: Private loans with high sensitivity (especially loan sharks) may be underreported or refused to answer.\n- **The baseline sample size in 2011 was small** (~8,000 households) - in 2013 and subsequent rounds, it was expanded to about 40,000 households, and the early sample loss was large when doing the panel.",
+      "description_markdown": "## Positioning in one sentence\nCHFS (China Household Finance Survey) is China’s most specialized **household finance** tracking survey conducted by Southwestern University of Finance and Economics since 2011——\nTaking household assets (real estate/finance/industrial and commercial), liabilities (mortgage/consumer loan/private lending) and financial behavior as core variables,\nFills the in-depth gap of CFPS/CHARLS/CGSS in household wealth and financial behavior.\nThe survey is mainly biennial, with later waves covering about 40,000 households. The documented research-access route is free but application-controlled: survey frequency does not guarantee a release every two years, and approval covers only the waves and fields granted by the provider.\n\n## Research questions suitable for answering/Typical identification strategies\n- **The \"balance sheet\" of Chinese households**: Joint measures of assets (housing units, reported property values and financial holdings) and liabilities (loan balances, interest rates and terms) support net-worth and wealth-distribution research. Prefer CHFS when this balance-sheet detail is central rather than the broader education and health coverage of CFPS.\n- **Housing and Household Behavior**: Multiple-property ownership, vacancy and mortgage-to-income ratios support research on how housing positions relate to household consumption, borrowing and labor supply.\n- **Entrepreneurship and Financial Constraints**: Business operation, start-up funding and credit application/approval records let researchers compare financing access with entrepreneurial activity. These are measured inputs to a causal design, not causal effects by themselves.\n- **Not suitable for**: health/biomarker research (please use CHARLS), cognition/child development (please use CFPS), social attitudes/values (please use CGSS), agricultural production details (please use RHS).\n\n## Key variables/modules\n- **Asset module** (core value): real estate (number of units/area/market value/year of purchase), financial assets (deposits/stocks/funds/financial management/gold/loans), industrial and commercial assets, vehicles, land\n- **Liability module** (core value): housing loan (commercial loan/provident fund/interest rate), consumer loan, business loan, credit card, private loan (amount/interest rate/source)\n- **Income and Consumption**: wages/business/property/transfer income, eight categories of consumer expenditures\n- **Entrepreneurship Module**: Whether to operate industry and commerce, industry, employees, income, source of start-up capital\n- **Financial Literacy**: Interest rate calculation, understanding of inflation, understanding of risk diversification\n- **Social Security**: Medical insurance type, pension type and amount, minimum living security\n\n## How to get\n1. Read the [official application note](https://chfs.swufe.edu.cn/sjzx/sjsq.htm), then open its [CHFS data-registration portal](https://chfser.swufe.edu.cn/data/). The former `/sjzx.htm` page returns 404.\n2. Register and submit the research-use application under the platform's agreement and review requirements. The April 2026 note opens the six 2011-2021 waves and explicitly does not generally open 2023/2025, despite their completed collection.\n3. After approval, download the waves, fields and documentation authorized for your application, in the formats actually supplied. The documented route is free; sensitive fields may require separate permission.\n\n## Connections to other data\n- **CFPS**: Cross-validation of household income/consumption/demographic variables; CFPS covers all ages + education/health depth is better, CHFS asset/liability depth is better → the two complement each other.\n- **CHARLS**: CHARLS contains asset/pension information for middle-aged and elderly people 45+, complementary to CHARLS health/biomarkers.\n- **Statistical Yearbook**: Use \"province/city code\" to connect macro indicators such as housing prices, GDP, and financial development.\n- **Weather exposure**: County-level daily-temperature matching is used in the recorded literature. ERA5-Land is a plausible reproducible grid source when approved CHFS geography and interview timing permit the match, but this record does not claim that the cited heat paper used ERA5-Land.\n\n## Remarks / Pitfalls\n- **House market values are self-reported**: Respondents may overestimate or underestimate property market values – be aware of measurement error when doing wealth distribution analyses.\n- **Private loans are underreported**: Private loans with high sensitivity (especially loan sharks) may be underreported or refused to answer.\n- **The baseline sample size in 2011 was small** (~8,000 households) - in 2013 and subsequent rounds, it was expanded to about 40,000 households, and the early sample loss was large when doing the panel.",
       "research_position": ""
     },
     {
@@ -39913,7 +39937,7 @@
         },
         {
           "route": "Paper and online appendix documentation",
-          "access_status": "documentation",
+          "access_status": "needs-verification",
           "direct_url": "https://broomcenter.ucsb.edu/sites/default/files/publications/pdf/kuhn3.pdf",
           "requirements": "Read the appendix and data section; the publisher article may require subscription access.",
           "steps": [
@@ -39923,7 +39947,8 @@
           ],
           "deliverable": "Public paper/appendix documentation for the production path and limitations",
           "cost": "free",
-          "last_checked": "2026-08-10"
+          "last_checked": "2026-10-26",
+          "caveat": "This legacy UCSB PDF returns 404 in GitHub Actions and the browser. Its historical read remains provenance, not a current download promise. The author replication page above is the separately recorded starting point for the named online appendix; this review did not re-download that appendix or substitute a different working-paper version."
         }
       ],
       "access": {
@@ -40089,6 +40114,15 @@
         }
       ],
       "provenance": [
+        {
+          "source": "https://broomcenter.ucsb.edu/sites/default/files/publications/pdf/kuhn3.pdf (GitHub Actions and browser check, 2026-10-26)",
+          "field_scope": [
+            "Current 404 of the legacy documentation route only; historical paper-use evidence and the distinct author replication route are retained"
+          ],
+          "added": "2026-10-26",
+          "confidence": "high",
+          "verified": true
+        },
         {
           "source": "https://sites.google.com/view/peter-kuhn/home/data/gender-discrimination-in-job-ads",
           "field_scope": [
@@ -40659,7 +40693,8 @@
           ],
           "deliverable": "CHIP1988/1995/2002/2007/2013/2018 approved data and related documents.",
           "cost": "free",
-          "last_checked": "2026-07-10"
+          "last_checked": "2026-10-26",
+          "caveat": "On 2026-10-26 the official BNU instructions at https://bs.bnu.edu.cn/zgjmsrfpdcsjk/sjsq/index.html still describe this process and link this portal, but the portal returned a deployment-side 502 in the browser. Retry through the official instructions; do not assume a live registration service. The separate ICPSR route below covers 2002 only."
         },
         {
           "route": "ICPSR 21741 public-use CHIP 2002",
@@ -40688,7 +40723,7 @@
           "unknown"
         ],
         "api": false,
-        "how_to_get": "Register at chip.bnu.edu.cn, select the CHIP sub-project of a specific year and submit the application; it usually takes 2 working days to review, and the download link will be sent by email and must be used within 5 days."
+        "how_to_get": "Register at chip.bnu.edu.cn, select the CHIP sub-project of a specific year and submit the application; it usually takes 2 working days to review, and the download link will be sent by email and must be used within 5 days. These remain the published instructions, but the portal returned 502 on 2026-10-26; consult the official BNU application note and retry later. ICPSR 21741 is an independent 2002-only alternative, not access to all waves."
       },
       "caveats": "The six rounds are repeated cross-sections rather than household panels; provinces and questionnaires change across rounds. The CHIP sample comes from the NBS regular household survey large sample frame and has an independent questionnaire design, which cannot be equated with the UHS/RHS original micro data.",
       "quality": {
@@ -40739,6 +40774,16 @@
         }
       ],
       "provenance": [
+        {
+          "source": "https://bs.bnu.edu.cn/zgjmsrfpdcsjk/sjsq/index.html and http://chip.bnu.edu.cn/ (browser-checked 2026-10-26)",
+          "field_scope": [
+            "Published registration, review and expiring email-link instructions remain on the official BNU page",
+            "The linked portal returned a deployment-side 502; no new application or delivery tested"
+          ],
+          "added": "2026-10-26",
+          "confidence": "high",
+          "verified": true
+        },
         {
           "source": "https://www.journals.uchicago.edu/doi/abs/10.1086/660887",
           "field_scope": [
@@ -40819,7 +40864,7 @@
         }
       ],
       "source_path": "datasets/chip.md",
-      "description_markdown": "## Positioning in one sentence\n\nCHIP is a long-term repeated cross-section of China's income distribution and labor market research, covering six rounds of urban, rural and later migrant population samples from 1988 to 2018. Its biggest advantage is the historical span and income details, its biggest limitation is that it cannot track the same household.\n\n## Select rules\n\n- Studying income distribution, poverty and wage history since reform and opening up: Priority CHIP.\n- Requires home panel: use CFPS/CHFS instead.\n- Full balance sheet required: CHFS preferred.\n- CHIP has a sampling partnership with the NBS Household Survey, but they are not the same data product with interchangeable names.\n\n## Get recipe\n\nRegister at `chip.bnu.edu.cn`, choose the subproject for the required wave, and submit an application. The provider states that review usually takes two working days; approved download links are sent by email and normally expire after five days.",
+      "description_markdown": "## Positioning in one sentence\n\nCHIP is a long-term repeated cross-section of China's income distribution and labor market research, covering six rounds of urban, rural and later migrant population samples from 1988 to 2018. Its biggest advantage is the historical span and income details, its biggest limitation is that it cannot track the same household.\n\n## Select rules\n\n- Studying income distribution, poverty and wage history since reform and opening up: Priority CHIP.\n- Requires home panel: use CFPS/CHFS instead.\n- Full balance sheet required: CHFS preferred.\n- CHIP has a sampling partnership with the NBS Household Survey, but they are not the same data product with interchangeable names.\n\n## Get recipe\n\nRegister at `chip.bnu.edu.cn`, choose the subproject for the required wave, and submit an application. The provider states that review usually takes two working days; approved download links are sent by email and normally expire after five days.\n\nThe [official BNU instructions](https://bs.bnu.edu.cn/zgjmsrfpdcsjk/sjsq/index.html) still point there, but the portal returned a deployment-side 502 on 2026-10-26. This is a current service barrier, not evidence that CHIP has vanished. For a 2002 design, consider the separately documented ICPSR 21741 route; it does not substitute for another CHIP wave or for UHS raw microdata.",
       "research_position": "CHIP is a long-term repeated cross-section of China's income distribution and labor market research, covering six rounds of urban, rural and later migrant population samples from 1988 to 2018. Its biggest advantage is the historical span and income details, its biggest limitation is that it cannot track the same household."
     },
     {
@@ -41126,7 +41171,7 @@
         "中国老年社会追踪调查评估",
         "RUC CLASS"
       ],
-      "provider": "中国人民大学老年学研究所 (Institute of Gerontology, Renmin University of China) designs and implements CLASS; data distributed via RUC's 健康中国 研究院 CLASS数据申请 route and the CNSDA archive (中国社会调查数据资料库, cnsda.ruc.edu.cn / cnsda.org). Verified from the official project site class.ruc.edu.cn (fetched 2026-08-15) and the official RUC application note (jkzgyjy.ruc.edu.cn, fetched+read 2026-08-15).",
+      "provider": "中国人民大学老年学研究所 (Institute of Gerontology, Renmin University of China) designs and implements CLASS. The current catalog/application start is RUC's CSSD CLASS data space, officially linked by the project site's platform-launch announcement (browser-read 2026-10-26). Older RUC email instructions and CNSDA archive references remain as dated sources below.",
       "china_related": true,
       "domains": [
         "aging",
@@ -41139,12 +41184,12 @@
       "data_pathway": {
         "mode": "direct",
         "origin": "ready-made",
-        "target_artifact": "CLASS individual (and community) questionnaire microdata. Per the official RUC application note (read 2026-08-15), RUC freely opens the 2014, 2016, 2018 and 2020 individual questionnaire data to academia; applicants send a purpose statement plus a signed data-use agreement to class_ruc@163.com and receive the data by email within about 7 working days after review. The class.ruc.edu.cn FAQ additionally states that project data can be downloaded free after registration at the CNSDA archive (中国国家调查数据库).",
+        "target_artifact": "CLASS individual (and community) questionnaire microdata. Per the official RUC application note (read 2026-08-15), RUC freely opens the 2014, 2016, 2018 and 2020 individual questionnaire data to academia; the current CSSD catalog instructs applicants to email the signed agreement to class_ruc@163.com with their CSSD username and requested wave, then use the file's download/application action and supply the research purpose for review. The older note's seven-working-day email delivery is historical, not a promise for the current CSSD workflow.",
         "availability": "ready-made",
         "ordinary_researcher_feasible": true,
-        "summary": "CLASS is a national longitudinal survey of older Chinese adults (baseline 2014) run by RUC's Institute of Gerontology. Baseline: 28 provinces (excluding Hainan, Tibet, Xinjiang), 134 counties/districts, 462 communities, 11,511 valid individual questionnaires plus 462 community questionnaires; follow-ups in 2016-17, 2018-19 and 2020-21 maintained about 12,000 surviving elderly respondents. Free application-based access for academia to 2014/2016/2018/2020 individual data, plus a free registration-download route via CNSDA per the official FAQ.",
-        "barrier": "Application-gated (purpose statement + signed agreement via email). The delivered-file geography fields and the complete variable inventory still need checking against the selected wave's questionnaire/codebook.",
-        "last_checked": "2026-09-28"
+        "summary": "CLASS is a national longitudinal survey of older Chinese adults (baseline 2014) run by RUC's Institute of Gerontology. Baseline: 28 provinces (excluding Hainan, Tibet, Xinjiang), 134 counties/districts, 462 communities, 11,511 valid individual questionnaires plus 462 community questionnaires; follow-ups in 2016-17, 2018-19 and 2020-21 maintained about 12,000 surviving elderly respondents. Free application-based access for academia to 2014/2016/2018/2020 individual data, with the current CSSD file-specific application procedure below.",
+        "barrier": "Application-gated (CSSD account, purpose statement and signed agreement emailed with username and wave; approval is file-specific). The delivered-file geography fields and the complete variable inventory still need checking against the selected wave's questionnaire/codebook.",
+        "last_checked": "2026-10-26"
       },
       "unit_of_observation": "Individual older adult respondent with household context; community questionnaire per sampled community",
       "structure": "panel (longitudinal follow-up of surviving elderly; baseline 2014, follow-ups 2016-17/2018-19/2020-21)",
@@ -41224,8 +41269,26 @@
       ],
       "access_routes": [
         {
-          "route": "RUC CLASS数据申请 (email application)",
+          "route": "RUC CSSD CLASS data space",
           "access_status": "by-application",
+          "direct_url": "https://cssd.ruc.edu.cn/dataspace/CLASS",
+          "requirements": [
+            "CSSD account and the platform's identity and data-use conditions",
+            "Signed CLASS data-use agreement emailed to class_ruc@163.com with CSSD username and exact requested wave/year"
+          ],
+          "steps": [
+            "Open the official CLASS data space and select the wave; download its electronic data-use agreement.",
+            "Sign and email the agreement with the CSSD username and requested wave to the project contact.",
+            "Use the file's download/application action, state the research purpose and wait for review before obtaining restricted files."
+          ],
+          "deliverable": "Approved wave-specific survey files and questionnaires; visible 2016/2020 entries include SPSS .sav files and PDF questionnaires, while the catalog also lists 2018.",
+          "cost": "free",
+          "last_checked": "2026-10-26",
+          "caveat": "The catalog was read without login; no application, approval or file download was performed. Catalogue project/file counts are not survey-wave counts. Latest generally available wave beyond the recorded 2020 set was not established."
+        },
+        {
+          "route": "RUC CLASS数据申请 (email application)",
+          "access_status": "historical-documentation",
           "direct_url": "http://jkzgyjy.ruc.edu.cn/sjzy/CLASSsjsq/index.htm",
           "requirements": [
             "Purpose statement (research aim, plan, data needed)",
@@ -41239,11 +41302,11 @@
           "deliverable": "CLASS individual questionnaire microdata for approved waves (2014/2016/2018/2020)",
           "cost": "free",
           "last_checked": "2026-08-15",
-          "caveat": "contact 010-82507289 / sphoffice@ruc.edu.cn listed on the page; the 健康中国研究院 is the current host of the CLASS data page"
+          "caveat": "Historical RUC instructions read in August 2026; use the current CSSD procedure above rather than promising email delivery within seven working days."
         },
         {
           "route": "CNSDA archive (中国社会调查数据资料库)",
-          "access_status": "by-application",
+          "access_status": "needs-verification",
           "direct_url": "http://cnsda.ruc.edu.cn/",
           "requirements": "registration at CNSDA (中国国家调查数据库); per the official FAQ, register, log in, download free",
           "steps": [
@@ -41253,22 +41316,23 @@
           "deliverable": "CLASS data files via the archive (exact per-wave inventory unread)",
           "cost": "free",
           "last_checked": "2026-08-15",
-          "caveat": "cnsda.ruc.edu.cn DNS failed from this environment on 2026-08-15 (blocked, not absence); cnsda.org project pages fetched OK"
+          "caveat": "cnsda.ruc.edu.cn failed DNS in GitHub Actions and returned an empty browser response on 2026-10-26; use the official CSSD data space. The August check of cnsda.org is a historical observation, not a current access guarantee."
         }
       ],
       "access": {
-        "url": "http://jkzgyjy.ruc.edu.cn/sjzy/CLASSsjsq/index.htm",
+        "url": "https://cssd.ruc.edu.cn/dataspace/CLASS",
         "cost": "free",
         "license": "Data-use agreement per application; academic use expected",
         "format": [
-          "microdata files (exact formats unread)"
+          "SPSS .sav (visible 2016/2020 catalog entries; authenticated delivery not inspected)",
+          "PDF questionnaires and data-use agreement"
         ],
         "api": false,
-        "how_to_get": "Email application route (purpose + signed agreement to class_ruc@163.com) or CNSDA registration-download route; free of charge."
+        "how_to_get": "Start at the official CSSD CLASS data space. Email the signed agreement to class_ruc@163.com with the CSSD username and requested wave; then use the file's application action, state the purpose and await review. Do not treat the old CNSDA endpoint or historical email turnaround as the current delivery process."
       },
       "caveats": [
-        "Exact per-wave variable sets, geography fields and file formats not read this round; verify in the delivered files.",
-        "The class.ruc.edu.cn site is a small project/evaluation subsite (2014 materials, news to 2016); the data pages moved to the 健康中国研究院 and CNSDA.",
+        "Exact per-wave variable sets and geography fields still need checking in approved files; the visible catalog's .sav labels do not establish every wave's format.",
+        "The official project site now links the 2026 CSSD platform announcement; older RUC and CNSDA instructions remain dated evidence, not the recommended starting point.",
         "Waves beyond 2020 not verified."
       ],
       "quality": {
@@ -41290,6 +41354,17 @@
         }
       ],
       "provenance": [
+        {
+          "source": "http://class.ruc.edu.cn/info/1021/1019.htm (official CSSD launch announcement) and https://cssd.ruc.edu.cn/dataspace/CLASS (browser-read 2026-10-26)",
+          "field_scope": [
+            "Officially linked current platform and CLASS identity",
+            "File-specific agreement, email, CSSD username, wave and application/review steps",
+            "Visible 2016/2020 SPSS files and questionnaires and an additional 2018 catalog entry; no authenticated download"
+          ],
+          "added": "2026-10-26",
+          "confidence": "high",
+          "verified": true
+        },
         {
           "source": "http://class.ruc.edu.cn/ (official project site, fetched 2026-08-15)",
           "field_scope": [
@@ -41364,8 +41439,8 @@
         }
       ],
       "source_path": "datasets/class-china-longitudinal-aging-social-survey.md",
-      "description_markdown": "## Positioning in one sentence\n\nCLASS is RUC's national longitudinal survey of older adults (baseline 2014, 11,511 respondents across 28 provinces, follow-ups through 2020-21) with a verified free application route (purpose statement + signed agreement by email) for the 2014/2016/2018/2020 individual data; an open 2024 article confirms a usable 2018 urban/non-urban analysis.\n\n## Select rules\n\n- Prioritize CLASS for older-adult health/social/care research where the RUC survey family and free email application route fit.\n- Compare with charls (biomarkers/health modules) before choosing; compare with china-clhls for oldest-old samples.\n- Not for working-age populations or biomarker designs unless verified in the delivered files.\n\n## Get recipe\n\n1. Read the official application note on jkzgyjy.ruc.edu.cn.\n2. Send research plan + signed data-use agreement to class_ruc@163.com.\n3. Expect data within ~7 working days; alternatively register at CNSDA for the download route (browser check needed - DNS flaky from some networks).\n\n## Connections and Limitations\n\nPanel linkage is designed across waves; geography fields per wave need checking in the delivered file before an external spatial merge. The official CLASS site itself hosts only 2014-era materials - use the 健康中国研究院 page for data. Waves beyond 2020 are unverified. The 2024 paper verifies an urban/non-urban 2018 use case, but its cleaned subset and grouping implementation are not a released CLASS deliverable.\n\n## Decision sufficiency check\n\nA researcher can choose the released CLASS survey family for older-adult work, request the 2014/2016/2018/2020 microdata through the verified free route, and know a concrete 2018 urban/non-urban use case. Before a fine spatial merge or a different module, inspect the approved wave's questionnaire/codebook and delivered geography fields; do not treat the paper's analysis subset as a downloadable panel.",
-      "research_position": "CLASS is RUC's national longitudinal survey of older adults (baseline 2014, 11,511 respondents across 28 provinces, follow-ups through 2020-21) with a verified free application route (purpose statement + signed agreement by email) for the 2014/2016/2018/2020 individual data; an open 2024 article confirms a usable 2018 urban/non-urban analysis."
+      "description_markdown": "## Positioning in one sentence\n\nCLASS is RUC's national longitudinal survey of older adults (baseline 2014, 11,511 respondents across 28 provinces). Its documented 2014/2016/2018/2020 individual-data set is reached through a free, application-controlled route, now starting at CSSD; an open 2024 article confirms a usable 2018 urban/non-urban analysis.\n\n## Select rules\n\n- Prioritize CLASS for older-adult health/social/care research where the RUC survey family and free email application route fit.\n- Compare with charls (biomarkers/health modules) before choosing; compare with china-clhls for oldest-old samples.\n- Not for working-age populations or biomarker designs unless verified in the delivered files.\n\n## Get recipe\n\n1. Open the [CSSD CLASS data space](https://cssd.ruc.edu.cn/dataspace/CLASS), register under the platform's conditions, select the wave and obtain the electronic agreement.\n2. Send the signed agreement to class_ruc@163.com, identifying the CSSD username and exact wave/year.\n3. Use the selected file's download/application action and state the research purpose for approval. The current catalog lists restricted survey files; an open catalog page is not an approved download. The old email turnaround and CNSDA route are retained as historical instructions only.\n\n## Connections and Limitations\n\nPanel linkage is designed across waves; geography fields per wave need checking in the delivered file before an external spatial merge. Use the officially linked CSSD route rather than the unavailable legacy CNSDA host. The new catalog describes later fieldwork, but this review does not establish general release beyond the recorded 2020 wave. The 2024 paper verifies an urban/non-urban 2018 use case, but its cleaned subset and grouping implementation are not a released CLASS deliverable.\n\n## Decision sufficiency check\n\nA researcher can choose the released CLASS survey family for older-adult work, request the 2014/2016/2018/2020 microdata through the verified free route, and know a concrete 2018 urban/non-urban use case. Before a fine spatial merge or a different module, inspect the approved wave's questionnaire/codebook and delivered geography fields; do not treat the paper's analysis subset as a downloadable panel.",
+      "research_position": "CLASS is RUC's national longitudinal survey of older adults (baseline 2014, 11,511 respondents across 28 provinces). Its documented 2014/2016/2018/2020 individual-data set is reached through a free, application-controlled route, now starting at CSSD; an open 2024 article confirms a usable 2018 urban/non-urban analysis."
     },
     {
       "schema_version": 3,
@@ -43062,12 +43137,12 @@
       "data_pathway": {
         "mode": "direct",
         "origin": "ready-made",
-        "target_artifact": "CRRS wave microdata (village questionnaires + household questionnaires + household-member records) delivered after an email application. Per the official 数据使用说明 (2022-10-24, read 2026-08-15): applicants fill the data-use application form, sign the confidentiality agreement, attach work/student-ID scans, and email the package; staff review within about one week. The 关于公布第二期...数据的说明 (2025-04-29, read) documents the released wave data and its content.",
+        "target_artifact": "Approved remote use of CRRS2020 and CRRS2022 village/household/member microdata, questionnaires, weights and coding information on the RDI cloud desktop. The official 2025-04-29 release note closes the former email-request channel: microdata stay in the controlled environment, and research results may be exported to the approved email only after administrator review. This is not a downloadable raw-data delivery.",
         "availability": "ready-made",
         "ordinary_researcher_feasible": true,
         "summary": "CRRS is a biennial national rural tracking survey by CASS RDI. Baseline 2020: 10 provinces (Guangdong, Zhejiang, Shandong, Anhui, Henan, Heilongjiang, Guizhou, Sichuan, Shaanxi, Ningxia), 50 counties, 150 townships, 300 villages, 300 village questionnaires + 3,700+ household questionnaires + 15,000+ household-member records. 2022 second wave (village tracking 100%, household tracking 81%); 2024 third wave added Liaoning, Shanxi, Hunan and Inner Mongolia (472 village + 5,800+ household questionnaires, 23,000+ members). Second-wave data release announced 2025-04-29; a fourth wave was in preparation as of 2026-07 (official news).",
-        "barrier": "Application-gated (email application with form + confidentiality agreement + ID scan, ~1 week review). A public 2025 paper independently confirms the 2020 application route, institutional-name requirement, contact addresses and one-week reply expectation; exact per-wave variable inventories and geography fields still need checking in the approved files.",
-        "last_checked": "2026-09-28"
+        "barrier": "Domestic applicants only under the published rules; identity/institution review, a research plan, limited cloud accounts and a monthly lottery when demand exceeds capacity. Unsuccessful applicants roll forward within the application year. Only reviewed results leave the cloud. The published application endpoint was not logged into or tested in this review; consult the official note/contact for current operation.",
+        "last_checked": "2026-10-26"
       },
       "unit_of_observation": "Three linked levels: village questionnaire, household questionnaire, and individual household-member records; panel tracking of baseline sample across waves",
       "structure": "panel (tracking survey; biennial waves 2020/2022/2024, fourth wave in preparation 2026)",
@@ -43078,9 +43153,9 @@
       "time_span": {
         "start": "2020",
         "end": "2024",
-        "last_confirmed_release": "2025-04-29 (second-wave data release note; three waves completed)",
-        "coverage_note": "Waves: 2020 baseline, 2022 second, 2024 third (completed per the 2025-04-29 note); fourth-wave preparation news dated 2026-07 on the official site. Which waves are actually downloadable per the release note was not fully read.",
-        "last_checked": "2026-08-15"
+        "last_confirmed_release": "2025-04-29: CRRS2020 and CRRS2022 open for approved cloud use",
+        "coverage_note": "Waves: 2020 baseline, 2022 second, 2024 third (completed per the 2025-04-29 note); fourth-wave preparation news dated 2026-07 on the official site. The re-read release note grants cloud use of 2020/2022, not a 2024 release or downloadable microdata.",
+        "last_checked": "2026-10-26"
       },
       "frequency": [
         "biennial"
@@ -43095,11 +43170,11 @@
       ],
       "research_fit": {
         "best_for": [
-          "Rural China household/village panel research (2020-2024) on production, income, consumption and rural revitalization policies, with village-level context",
-          "Research needing the CASS RDI rural survey family and its documented free email application route"
+          "Rural China household/village panel research (released 2020/2022) on production, income, consumption and rural revitalization policies, with village-level context",
+          "Research fitting the CASS RDI rural survey family and approved domestic cloud-desktop use"
         ],
         "choose_over": [
-          "Choose CRRS over other rural household surveys when village+household linked design, 2020-2024 biennial waves, and CASS RDI provenance fit.",
+          "Choose CRRS over other rural household surveys when village+household linked design, released 2020/2022 waves, and CASS RDI provenance fit.",
           "For nationally representative rural-urban household panels with long history use cfps/chip; CRRS is rural-focused and younger."
         ],
         "not_good_for": [
@@ -43112,7 +43187,7 @@
           "Policy exposure timing (belongs to the variation side of the design)"
         ],
         "variation_available": [
-          "Longitudinal tracking variation across 2020/2022/2024",
+          "Longitudinal tracking across released 2020/2022; 2024 fieldwork completion does not establish its release",
           "Cross-county/cross-province variation (10 baseline provinces; 14 by 2024)"
         ],
         "topics": [
@@ -43149,41 +43224,40 @@
       ],
       "access_routes": [
         {
-          "route": "RDI email application (调查数据 column)",
+          "route": "RDI cloud-desktop application (official release instructions)",
           "access_status": "by-application",
-          "direct_url": "http://rdi.cssn.cn/dcsj/",
+          "direct_url": "http://rdi.cssn.cn/dcsj/202504/t20250429_5871894.shtml",
           "requirements": [
-            "Data-use application form (purpose, research plan)",
-            "Signed confidentiality agreement (数据保密协议)",
-            "Work or student ID scan"
+            "Domestic applicant eligible under the official note; overseas applicants are not currently included",
+            "Platform registration, identity and institutional documentation reviewed by the provider",
+            "Research plan after account allocation; personal non-commercial account and reviewed result exports"
           ],
           "steps": [
-            "Read 中国乡村振兴综合调查数据使用说明 (rdi.cssn.cn/dcsj/) and the 第二期 data release note.",
-            {
-              "Fill the application form (附件三": "数据使用申请表.docx) and confidentiality agreement (附件四), scan with ID."
-            },
-            "Email the package to the address stated in the note with the specified subject; staff review within about one week (no reply in a week = not approved)."
+            "Read the official second-wave note and follow its cloud-platform address and user manual; consult crrs_rdi@cass.org.cn if the endpoint or certificate is unavailable.",
+            "Register and submit the required identity/institution materials through the provider's process, not to this repository.",
+            "Await review and cloud-account allocation; oversubscribed approved applications enter the first-working-day monthly lottery, with annual reapplication required.",
+            "Submit the requested research plan after allocation, work on the two released waves inside the cloud, and request review before exporting research results."
           ],
-          "deliverable": "CRRS wave microdata (village/household/member files) for approved research",
-          "cost": "free",
-          "last_checked": "2026-08-15",
-          "caveat": "the specific email address and attachments were on the 2022-10-24 note page (read); verify the current contact on the official column"
+          "deliverable": "Controlled cloud access to CRRS2020/2022 village/household/member data, questionnaires, weights and coding information; reviewed result exports, not a raw-file download",
+          "cost": "by-application",
+          "last_checked": "2026-10-26",
+          "caveat": "The former email data-request route was explicitly closed on 2025-04-29. The current note does not specify fees. This review read the official instructions without submitting identity documents, opening an account or verifying the cloud endpoint's current service availability."
         }
       ],
       "access": {
-        "url": "http://rdi.cssn.cn/dcsj/",
-        "cost": "free",
-        "license": "Data-use agreement/confidentiality agreement per application; academic use expected",
+        "url": "http://rdi.cssn.cn/dcsj/202504/t20250429_5871894.shtml",
+        "cost": "by-application",
+        "license": "Personal non-commercial approved cloud use; no account sharing; result export requires review and published research must acknowledge the project",
         "format": [
           "microdata files (exact formats unread)"
         ],
         "api": false,
-        "how_to_get": "Email application per the official 数据使用说明; free, purpose-stated, agreement-signed."
+        "how_to_get": "Follow the official 2025-04-29 cloud-desktop instructions for domestic identity review, account allocation and research-plan submission. Work with CRRS2020/2022 in the controlled environment and export only reviewed results. The historical email microdata-request channel is closed."
       },
       "caveats": [
         "The public 2025 paper verifies a 2020 use case and route, not that all variables, fields or sample counts recur in another CRRS wave; inspect the selected approved delivery and its questionnaire/codebook.",
         "The 2022-10-24 使用说明 mentions slightly different baseline village counts (156 in one passage vs 300 in the 2025 note); the 2025-04-29 release note is used as the primary source and the discrepancy is retained as unresolved.",
-        "Which waves are currently distributable (第一期/第二期/第三期) was not fully verified."
+        "The 2025 note opens 2020/2022 to controlled use; 2024 collection and 2026 fieldwork preparation do not establish release of those later waves. The old email route described in the 2025 paper is historical and does not override the newer official procedure."
       ],
       "quality": {
         "profile_status": "verified",
@@ -43204,6 +43278,17 @@
         }
       ],
       "provenance": [
+        {
+          "source": "http://rdi.cssn.cn/dcsj/202504/t20250429_5871894.shtml (official second-wave release note, browser re-read 2026-10-26 despite GitHub HEAD 403)",
+          "field_scope": [
+            "Current 2020/2022 cloud-only use and closure of the former email-request channel",
+            "Domestic eligibility, identity review, research plan, account-capacity lottery and controlled result exports",
+            "Application instructions verified, not cloud service availability, approved credentials or raw-data delivery"
+          ],
+          "added": "2026-10-26",
+          "confidence": "high",
+          "verified": true
+        },
         {
           "source": "http://rdi.cssn.cn/dcsj/ (调查数据 column, fetched+read 2026-08-15)",
           "field_scope": [
@@ -43280,8 +43365,8 @@
         }
       ],
       "source_path": "datasets/crrs-rural-revitalization-survey.md",
-      "description_markdown": "## Positioning in one sentence\n\nCRRS is CASS RDI's biennial rural tracking survey (2020/2022/2024, 10 provinces at baseline expanding to 14) of villages, households and members, obtainable free through a documented email application (form + confidentiality agreement + ID scan, about one week); a public article verifies a linked village-villager 2020 use case.\n\n## Select rules\n\n- Prioritize CRRS for 2020-2024 rural household/village panel research where CASS RDI provenance and the linked village-household-member design matter.\n- Switch to cfps/chip for nationally representative, longer-history household panels; CRRS is rural-only and young.\n- Not for urban samples or pre-2020 history.\n\n## Get recipe\n\n1. Read the official 调查数据 column (rdi.cssn.cn/dcsj/) and the 第二期 release note to confirm the target wave.\n2. Fill 数据使用申请表 and 数据保密协议 (attachments on the 使用说明 page), scan with work/student ID.\n3. Email the package to the address in the note; expect review within ~1 week; receive microdata if approved.\n\n## Connections and Limitations\n\nVillage-household-member linkage is designed within waves and across waves (tracking). The published 2020 example verifies a village-variable to villager-record match, but its cleaned 284-village/7,451-person sample is not itself the delivered dataset. County-level geography should be normalized before joining external data. One unresolved discrepancy between the 2022 and 2025 official notes on baseline village counts is retained. Confirm the target wave's currently distributable files on the official column before relying on a specific wave.\n\n## Decision sufficiency check\n\nA researcher can choose CRRS for rural village-household work, start the free institutional email application, and knows a concrete 2020 linked village-villager use case. Before a different-wave analysis or external geographic merge, inspect the approved delivery's questionnaire, codebook, identifiers, weights and geography; do not treat the paper's cleaned matched sample as the CRRS file.",
-      "research_position": "CRRS is CASS RDI's biennial rural tracking survey (2020/2022/2024, 10 provinces at baseline expanding to 14) of villages, households and members, obtainable free through a documented email application (form + confidentiality agreement + ID scan, about one week); a public article verifies a linked village-villager 2020 use case."
+      "description_markdown": "## Positioning in one sentence\n\nCRRS is CASS RDI's rural tracking survey of villages, households and members. The current documented route is approved domestic cloud use of the 2020/2022 waves, with reviewed result exports rather than raw-data downloads; a public article verifies a linked village-villager 2020 use case. Later fieldwork expanded coverage but does not itself establish another released wave.\n\n## Select rules\n\n- Prioritize CRRS for released 2020/2022 rural household/village research when the linked design fits and controlled domestic cloud use is feasible.\n- Switch to cfps/chip for nationally representative, longer-history household panels; CRRS is rural-only and young.\n- Not for urban samples or pre-2020 history.\n\n## Get recipe\n\n1. Read the [official second-wave instructions](http://rdi.cssn.cn/dcsj/202504/t20250429_5871894.shtml), which supersede the older email procedure. Follow the provider's platform link and manual; ask the listed project contact about an unavailable service or certificate rather than bypassing warnings.\n2. Domestic applicants complete identity/institution review and await cloud-account allocation, potentially by the monthly lottery, then submit the requested research plan.\n3. Analyze the 2020/2022 waves in the cloud. Research results require administrator review before email export; the instructions do not offer downloadable raw microdata. No identity documents or application were submitted in this review.\n\n## Connections and Limitations\n\nVillage-household-member linkage is designed within waves and across waves (tracking). The published 2020 example verifies a village-variable to villager-record match, but its cleaned 284-village/7,451-person sample is not itself the delivered dataset. County-level geography should be normalized before joining external data. One unresolved discrepancy between the 2022 and 2025 official notes on baseline village counts is retained. Confirm the target wave's currently distributable files on the official column before relying on a specific wave.\n\n## Decision sufficiency check\n\nA domestic researcher can assess the 2020/2022 linked village-household product and begin the documented cloud application, allowing for eligibility, capacity and result-export review. A design requiring unrestricted local microdata or overseas access cannot assume this route will work. Within approved access, inspect questionnaires, identifiers, weights and geography before an external merge; the paper's cleaned matched sample is not a released CRRS file.",
+      "research_position": "CRRS is CASS RDI's rural tracking survey of villages, households and members. The current documented route is approved domestic cloud use of the 2020/2022 waves, with reviewed result exports rather than raw-data downloads; a public article verifies a linked village-villager 2020 use case. Later fieldwork expanded coverage but does not itself establish another released wave."
     },
     {
       "schema_version": 2,
@@ -49166,7 +49251,8 @@
           ],
           "deliverable": "CHIP's independently investigated controlled data products; It cannot claim UHS original data",
           "cost": "by-application",
-          "last_checked": "2026-07-10"
+          "last_checked": "2026-07-10",
+          "caveat": "The CHIP portal returned a deployment-side 502 in a 2026-10-26 browser check although the official BNU application instructions still link it. Treat this substitute as currently interrupted; the separate CHIP 2002 ICPSR archive is not UHS access."
         }
       ],
       "quality": {
@@ -49216,6 +49302,15 @@
         }
       ],
       "provenance": [
+        {
+          "source": "https://bs.bnu.edu.cn/zgjmsrfpdcsjk/sjsq/index.html and http://chip.bnu.edu.cn/ (browser-checked 2026-10-26; availability note only)",
+          "field_scope": [
+            "Outage of the CHIP substitute route, without any new claim about NBS UHS application access"
+          ],
+          "added": "2026-10-26",
+          "confidence": "high",
+          "verified": true
+        },
         {
           "source": "https://www.aeaweb.org/articles/materials/16850",
           "field_scope": [

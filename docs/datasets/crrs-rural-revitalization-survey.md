@@ -26,13 +26,12 @@ data_pathway:
   mode: direct
   origin: ready-made
   target_artifact: >-
-    CRRS wave microdata (village questionnaires + household questionnaires +
-    household-member records) delivered after an email application. Per the
-    official 数据使用说明 (2022-10-24, read 2026-08-15): applicants fill the
-    data-use application form, sign the confidentiality agreement, attach
-    work/student-ID scans, and email the package; staff review within about
-    one week. The 关于公布第二期...数据的说明 (2025-04-29, read) documents the
-    released wave data and its content.
+    Approved remote use of CRRS2020 and CRRS2022 village/household/member
+    microdata, questionnaires, weights and coding information on the RDI
+    cloud desktop. The official 2025-04-29 release note closes the former
+    email-request channel: microdata stay in the controlled environment,
+    and research results may be exported to the approved email only after
+    administrator review. This is not a downloadable raw-data delivery.
   availability: ready-made
   ordinary_researcher_feasible: true
   summary: >-
@@ -46,12 +45,13 @@ data_pathway:
     questionnaires, 23,000+ members). Second-wave data release announced
     2025-04-29; a fourth wave was in preparation as of 2026-07 (official news).
   barrier: >-
-    Application-gated (email application with form + confidentiality
-    agreement + ID scan, ~1 week review). A public 2025 paper independently
-    confirms the 2020 application route, institutional-name requirement,
-    contact addresses and one-week reply expectation; exact per-wave variable
-    inventories and geography fields still need checking in the approved files.
-  last_checked: '2026-09-28'
+    Domestic applicants only under the published rules; identity/institution
+    review, a research plan, limited cloud accounts and a monthly lottery
+    when demand exceeds capacity. Unsuccessful applicants roll forward
+    within the application year. Only reviewed results leave the cloud.
+    The published application endpoint was not logged into or tested in
+    this review; consult the official note/contact for current operation.
+  last_checked: '2026-10-26'
 
 unit_of_observation: >-
   Three linked levels: village questionnaire, household questionnaire, and
@@ -68,13 +68,13 @@ geography: >-
 time_span:
   start: '2020'
   end: '2024'
-  last_confirmed_release: '2025-04-29 (second-wave data release note; three waves completed)'
+  last_confirmed_release: '2025-04-29: CRRS2020 and CRRS2022 open for approved cloud use'
   coverage_note: >-
     Waves: 2020 baseline, 2022 second, 2024 third (completed per the
     2025-04-29 note); fourth-wave preparation news dated 2026-07 on the
-    official site. Which waves are actually downloadable per the release
-    note was not fully read.
-  last_checked: '2026-08-15'
+    official site. The re-read release note grants cloud use of 2020/2022,
+    not a 2024 release or downloadable microdata.
+  last_checked: '2026-10-26'
 frequency:
 - biennial
 sample_size: >-
@@ -93,14 +93,13 @@ key_variables:
 
 research_fit:
   best_for:
-  - Rural China household/village panel research (2020-2024) on production,
+  - Rural China household/village panel research (released 2020/2022) on production,
     income, consumption and rural revitalization policies, with village-level
     context
-  - Research needing the CASS RDI rural survey family and its documented free
-    email application route
+  - Research fitting the CASS RDI rural survey family and approved domestic cloud-desktop use
   choose_over:
   - Choose CRRS over other rural household surveys when village+household
-    linked design, 2020-2024 biennial waves, and CASS RDI provenance fit.
+    linked design, released 2020/2022 waves, and CASS RDI provenance fit.
   - For nationally representative rural-urban household panels with long
     history use cfps/chip; CRRS is rural-focused and younger.
   not_good_for:
@@ -113,7 +112,7 @@ research_fit:
     county statistics
   - Policy exposure timing (belongs to the variation side of the design)
   variation_available:
-  - Longitudinal tracking variation across 2020/2022/2024
+  - Longitudinal tracking across released 2020/2022; 2024 fieldwork completion does not establish its release
   - Cross-county/cross-province variation (10 baseline provinces; 14 by 2024)
   topics:
   - rural revitalization
@@ -142,36 +141,37 @@ joins:
   evidence_status: plausible
 
 access_routes:
-- route: RDI email application (调查数据 column)
+- route: RDI cloud-desktop application (official release instructions)
   access_status: by-application
-  direct_url: http://rdi.cssn.cn/dcsj/
+  direct_url: http://rdi.cssn.cn/dcsj/202504/t20250429_5871894.shtml
   requirements:
-  - Data-use application form (purpose, research plan)
-  - Signed confidentiality agreement (数据保密协议)
-  - Work or student ID scan
+  - Domestic applicant eligible under the official note; overseas applicants are not currently included
+  - Platform registration, identity and institutional documentation reviewed by the provider
+  - Research plan after account allocation; personal non-commercial account and reviewed result exports
   steps:
-  - Read 中国乡村振兴综合调查数据使用说明 (rdi.cssn.cn/dcsj/) and the 第二期 data release note.
-  - Fill the application form (附件三: 数据使用申请表.docx) and confidentiality agreement (附件四), scan with ID.
-  - Email the package to the address stated in the note with the specified subject; staff review within about one week (no reply in a week = not approved).
-  deliverable: CRRS wave microdata (village/household/member files) for approved research
-  cost: free
-  last_checked: '2026-08-15'
-  caveat: the specific email address and attachments were on the 2022-10-24 note page (read); verify the current contact on the official column
+  - Read the official second-wave note and follow its cloud-platform address and user manual; consult crrs_rdi@cass.org.cn if the endpoint or certificate is unavailable.
+  - Register and submit the required identity/institution materials through the provider's process, not to this repository.
+  - Await review and cloud-account allocation; oversubscribed approved applications enter the first-working-day monthly lottery, with annual reapplication required.
+  - Submit the requested research plan after allocation, work on the two released waves inside the cloud, and request review before exporting research results.
+  deliverable: Controlled cloud access to CRRS2020/2022 village/household/member data, questionnaires, weights and coding information; reviewed result exports, not a raw-file download
+  cost: by-application
+  last_checked: '2026-10-26'
+  caveat: The former email data-request route was explicitly closed on 2025-04-29. The current note does not specify fees. This review read the official instructions without submitting identity documents, opening an account or verifying the cloud endpoint's current service availability.
 
 access:
-  url: http://rdi.cssn.cn/dcsj/
-  cost: free
-  license: Data-use agreement/confidentiality agreement per application; academic use expected
+  url: http://rdi.cssn.cn/dcsj/202504/t20250429_5871894.shtml
+  cost: by-application
+  license: Personal non-commercial approved cloud use; no account sharing; result export requires review and published research must acknowledge the project
   format:
   - microdata files (exact formats unread)
   api: false
-  how_to_get: Email application per the official 数据使用说明; free, purpose-stated, agreement-signed.
+  how_to_get: Follow the official 2025-04-29 cloud-desktop instructions for domestic identity review, account allocation and research-plan submission. Work with CRRS2020/2022 in the controlled environment and export only reviewed results. The historical email microdata-request channel is closed.
 caveats:
 - The public 2025 paper verifies a 2020 use case and route, not that all
   variables, fields or sample counts recur in another CRRS wave; inspect the
   selected approved delivery and its questionnaire/codebook.
 - The 2022-10-24 使用说明 mentions slightly different baseline village counts (156 in one passage vs 300 in the 2025 note); the 2025-04-29 release note is used as the primary source and the discrepancy is retained as unresolved.
-- Which waves are currently distributable (第一期/第二期/第三期) was not fully verified.
+- The 2025 note opens 2020/2022 to controlled use; 2024 collection and 2026 fieldwork preparation do not establish release of those later waves. The old email route described in the 2025 paper is historical and does not override the newer official procedure.
 
 quality:
   profile_status: verified
@@ -203,6 +203,14 @@ used_by:
     authors' matched and cleaned analysis file.
 
 provenance:
+- source: http://rdi.cssn.cn/dcsj/202504/t20250429_5871894.shtml (official second-wave release note, browser re-read 2026-10-26 despite GitHub HEAD 403)
+  field_scope:
+  - Current 2020/2022 cloud-only use and closure of the former email-request channel
+  - Domestic eligibility, identity review, research plan, account-capacity lottery and controlled result exports
+  - Application instructions verified, not cloud service availability, approved credentials or raw-data delivery
+  added: '2026-10-26'
+  confidence: high
+  verified: true
 - source: http://rdi.cssn.cn/dcsj/ (调查数据 column, fetched+read 2026-08-15)
   field_scope:
   - data column exists
@@ -254,19 +262,19 @@ related_datasets:
 
 ## Positioning in one sentence
 
-CRRS is CASS RDI's biennial rural tracking survey (2020/2022/2024, 10 provinces at baseline expanding to 14) of villages, households and members, obtainable free through a documented email application (form + confidentiality agreement + ID scan, about one week); a public article verifies a linked village-villager 2020 use case.
+CRRS is CASS RDI's rural tracking survey of villages, households and members. The current documented route is approved domestic cloud use of the 2020/2022 waves, with reviewed result exports rather than raw-data downloads; a public article verifies a linked village-villager 2020 use case. Later fieldwork expanded coverage but does not itself establish another released wave.
 
 ## Select rules
 
-- Prioritize CRRS for 2020-2024 rural household/village panel research where CASS RDI provenance and the linked village-household-member design matter.
+- Prioritize CRRS for released 2020/2022 rural household/village research when the linked design fits and controlled domestic cloud use is feasible.
 - Switch to cfps/chip for nationally representative, longer-history household panels; CRRS is rural-only and young.
 - Not for urban samples or pre-2020 history.
 
 ## Get recipe
 
-1. Read the official 调查数据 column (rdi.cssn.cn/dcsj/) and the 第二期 release note to confirm the target wave.
-2. Fill 数据使用申请表 and 数据保密协议 (attachments on the 使用说明 page), scan with work/student ID.
-3. Email the package to the address in the note; expect review within ~1 week; receive microdata if approved.
+1. Read the [official second-wave instructions](http://rdi.cssn.cn/dcsj/202504/t20250429_5871894.shtml), which supersede the older email procedure. Follow the provider's platform link and manual; ask the listed project contact about an unavailable service or certificate rather than bypassing warnings.
+2. Domestic applicants complete identity/institution review and await cloud-account allocation, potentially by the monthly lottery, then submit the requested research plan.
+3. Analyze the 2020/2022 waves in the cloud. Research results require administrator review before email export; the instructions do not offer downloadable raw microdata. No identity documents or application were submitted in this review.
 
 ## Connections and Limitations
 
@@ -274,4 +282,4 @@ Village-household-member linkage is designed within waves and across waves (trac
 
 ## Decision sufficiency check
 
-A researcher can choose CRRS for rural village-household work, start the free institutional email application, and knows a concrete 2020 linked village-villager use case. Before a different-wave analysis or external geographic merge, inspect the approved delivery's questionnaire, codebook, identifiers, weights and geography; do not treat the paper's cleaned matched sample as the CRRS file.
+A domestic researcher can assess the 2020/2022 linked village-household product and begin the documented cloud application, allowing for eligibility, capacity and result-export review. A design requiring unrestricted local microdata or overseas access cannot assume this route will work. Within approved access, inspect questionnaires, identifiers, weights and geography before an external merge; the paper's cleaned matched sample is not a released CRRS file.
