@@ -1045,8 +1045,8 @@
         "start": "2013-09",
         "end": "2015-07",
         "last_confirmed_release": 2015,
-        "coverage_note": "Baseline is the 2013-2014 school year; the CNSDA catalog confirms a 2014-2015 follow-up with respondent files. Later CEPS follow-ups or additional cohorts are not silently included in this record.",
-        "last_checked": "2026-08-12"
+        "coverage_note": "These start/end dates describe the confirmed public national panel, 2013-2014 baseline and 2014-2015 follow-up. CSSD's third public release is a separate 2012 pilot, not another post-2015 panel wave. The restricted-data space names 2015-2016, 2017, 2019 and 2024 follow-ups, but their files and granted access were not verified. CSSD's 2026 publication/version dates are platform-release dates, not survey years.",
+        "last_checked": "2026-10-27"
       },
       "frequency": [
         "annual follow-up"
@@ -1099,8 +1099,20 @@
         ]
       },
       "access": {
-        "cost": "free",
+        "cost": "registration",
         "routes": [
+          {
+            "route": "RUC CSSD CEPS public data space (current primary route)",
+            "access_status": "available-with-registration-and-terms",
+            "cost": "registration",
+            "last_checked": "2026-10-27"
+          },
+          {
+            "route": "RUC CSSD CEPS restricted-data information",
+            "access_status": "needs-verification",
+            "cost": "by-application",
+            "last_checked": "2026-10-27"
+          },
           {
             "route": "CNSDA official CEPS catalog",
             "access_status": "available-with-login",
@@ -1124,7 +1136,7 @@
       "data_pathway": {
         "mode": "direct",
         "origin": "ready-made",
-        "target_artifact": "Multi-respondent school-based survey files for students, parents, teachers, and school administrators; baseline and follow-up files are released as separate respondent products.",
+        "target_artifact": "Separate student, parent, teacher and principal files for the national 2013-2014 baseline and 2014-2015 follow-up, plus a distinct 2012 pilot data file and questionnaires. The pilot is not a third national-panel wave.",
         "availability": "partially-reproducible",
         "ordinary_researcher_feasible": true
       },
