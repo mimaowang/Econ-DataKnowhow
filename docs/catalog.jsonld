@@ -251,10 +251,10 @@
         "@type": "Organization",
         "name": "National Survey Research Center (NSRC), Renmin University of China"
       },
-      "url": "https://www.cnsda.org/index.php?id=61662993&r=projects%2Fview",
+      "url": "https://cssd.ruc.edu.cn/dataspace/ceps1",
       "temporalCoverage": "2013-09/2015-07",
       "spatialCoverage": "National mainland China sample drawn from 28 county-level units (counties, districts, or county-level cities), 112 schools, and 438 classes at baseline",
-      "isAccessibleForFree": true,
+      "isAccessibleForFree": false,
       "additionalType": "ready",
       "source": "datasets/ceps.md"
     },
